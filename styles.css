@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #2a9d8f; /* Dark green background */
+    color: #ffffff; /* White text */
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #e76f51; /* Coral color for the heading */
+    text-align: center; /* Center the heading */
+}
+
+p {
+    font-size: 20px; /* Larger paragraph font size */
+    line-height: 1.6; /* Better spacing between lines */
+    text-align: center; /* Center the paragraph */
+}
+
