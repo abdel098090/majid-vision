@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,50 +7,296 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="login-container" style="display: flex;">
+        <form id="login-form" onsubmit="authenticateUser(event)">
+            <h2>Connexion</h2>
+            <input type="text" id="username" placeholder="Entrez votre nom" required>
+            <button type="submit">Commencer la discussion</button>
+        </form>
+    </div>    
+    <!-- Formulaire de connexion -->
+<div id="login-container" style="display: none;">
+    <form id="login-form" onsubmit="authenticateUser(event)">
+        <h2>Se connecter</h2>
+        <input type="text" id="username" placeholder="Entrez votre nom" required>
+        <button type="submit">Commencer la discussion</button>
+    </form>
+</div>
+
+<!-- Formulaire d'inscription -->
+<div id="signup-container" style="display: none;">
+    <form id="signup-form" onsubmit="registerUser(event)">
+        <h2>Créer un compte</h2>
+        <input type="text" id="signup-username" placeholder="Entrez votre nom" required>
+        <input type="email" id="signup-email" placeholder="Entrez votre email" required>
+        <button type="submit">S'inscrire</button>
+    </form>
+</div>
+
     <header>
-        <div class="language-switcher">
-            <a href="index.html">English</a> |
-            <a href="index-ar.html">العربية</a> |
-            <a href="index-fr.html">Français</a>
-        </div>        
-        <h1>Bienvenue à Majid Tech Vision</h1>
-        <p>Votre centre pour des tutoriels, des livres et du soutien technique.</p>        
-        <nav>
-            <ul>
-                        <li><a href="index-fr.html">Accueil</a></li>
-                        <li><a href="about-fr.html">À Propos</a></li>
-                        <li><a href="services-fr.html">Services</a></li>
-                        <li><a href="books-fr.html">Livres</a></li>
-                        <li><a href="courses-fr.html">Cours</a></li>
-                        <li><a href="contact-fr.html">Contact</a></li>              
-            </ul>
-        </nav>
+        <div class="top-bar">
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="scrollToTop()">Accueil</a></li>
+                    <li><a href="#about" onclick="showSection('about')">À propos</a></li>
+                    <li><a href="#services" onclick="showSection('services')">Services</a></li>
+                    <li><a href="#books" onclick="showSection('books')">Livres</a></li>
+                    <li><a href="#courses" onclick="showSection('courses')">Cours</a></li>
+                    <li><a href="#contact" onclick="showSection('contact')">Contact</a></li>
+                </ul>
+            </nav>            
+            <div class="language-switcher">
+                <a href="index.html">English</a> |
+                <a href="index-ar.html">العربية</a> |
+                <a href="index-fr.html">Français</a> |
+                <a href="#" id="login-link" onclick="showLogin()">Se connecter</a> |
+                <a href="#" id="signup-link" onclick="showSignUp()">Créer un compte</a>
+            </div>            
+        </div>
+        <div class="welcome-banner">
+            <div class="banner-overlay">
+                <h1>Bienvenue chez Majid Tech Vision</h1>
+                <p>Votre portail pour des tutoriels technologiques, des livres et du support.</p>
+                <a href="#services" class="cta-button">Explorer les services</a>
+            </div>
+        </div>
     </header>
+
     <main>
-        <section>
-            <h2>À Propos</h2>
-            <p>Je suis Abdelmadjid. Je propose des tutoriels, j'écris des livres, et j'aide à résoudre des problèmes techniques.</p>
+        <section class="featured-section">
+            <div class="featured-container">
+                <div class="featured-image">
+                    <img src="pexels-athena-2582937.jpg" alt="Image à la une">
+                </div>
+                <div class="featured-text">
+                    <h2>Autonomiser grâce à la technologie</h2>
+                    <p>Chez Majid Tech Vision, nous nous engageons à autonomiser les individus et les entreprises pour prospérer dans le monde numérique en constante évolution. Nous y parvenons en fournissant des solutions technologiques de pointe, des tutoriels complets et engageants, ainsi qu'un riche répertoire de ressources pratiques. Notre objectif est d'équiper nos clients avec les connaissances et outils nécessaires pour non seulement s'adapter à l'ère numérique, mais aussi pour y exceller.</p>
+                </div>
+            </div>
         </section>
-        <section>
-            <h2>Services</h2>
-            <p>Explorez les cours en ligne, les livres et les consultations techniques.</p>
+        <section class="testimonials">
+            <h2>Ce que disent nos clients</h2>
+            <div class="testimonial-container">
+                <div class="testimonial">
+                    <p>"Majid Tech Vision m'a aidé à configurer mon réseau sans effort. Les conseils étaient clairs, et le support était incroyable !"</p>
+                    <span>- John Doe, Spécialiste IT</span>
+                </div>
+                <div class="testimonial">
+                    <p>"Leur formation en cybersécurité a renforcé mes compétences et ma confiance. Hautement recommandé !"</p>
+                    <span>- Sarah Ali, Étudiante</span>
+                </div>
+                <div class="testimonial">
+                    <p>"Un support technique rapide et efficace pour ma petite entreprise. Ils m'ont sauvé la mise !"</p>
+                    <span>- Michael Smith, Entrepreneur</span>
+                </div>
+            </div>
         </section>
-    </main>    
-        <section id="books">
-            <h2>Books</h2>
-            <p>Download my books on Excel, programming, and more.</p>
+        
+        <!-- Section À propos -->
+        <section id="about" style="display: none;">
+            <div class="about-container">
+                <div class="about-image">
+                    <img src="yourphoto.jpg" alt="Photo d'Abdelmadjid">
+                </div>
+                <div class="about-text">
+                    <h2>À propos</h2>
+                    <p id="about-preview">Bonjour ! Je m'appelle Abdelmadjid, et je suis un passionné de technologie dédié à rendre la technologie accessible et utile pour tous. Mon parcours éducatif et professionnel a été à la fois enrichissant et transformateur.</p>
+                    <div id="about-full" style="display: none;">
+                        <p>Je suis actuellement étudiant au Salt Lake Community College (SLCC) dans l'Utah, en spécialité sciences informatiques avec un focus sur la cybersécurité...</p>
+                        <p>Mon parcours académique comprend des diplômes en réseautage informatique et technologies de l'information...</p>
+                        <p>Merci de prendre le temps d'en savoir plus sur moi. Je suis ravi de contribuer à l'univers en constante évolution de la technologie !</p>
+                    </div>
+                    <button id="read-more-btn" onclick="showMore()">Lire la suite</button>
+                </div>
+            </div>
         </section>
-        <section id="courses">
-            <h2>Courses</h2>
-            <p>Access my online tutorials and courses to level up your skills.</p>
+        
+        <!-- Section Services -->
+        <section id="services" style="display: none;">
+            <div class="container">
+                <h2>Nos Services</h2>
+                <p>Nous proposons une gamme de services professionnels pour aider les individus et les entreprises à prospérer dans l'ère numérique. Découvrez nos offres ci-dessous :</p>
+                <div class="service-list">
+                    <div class="service-item">
+                        <h3>Tutoriels & Formation</h3>
+                        <p>Tutoriels complets et sessions de formation en réseautage informatique, cybersécurité et bases de l'informatique.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Assistance Technique</h3>
+                        <p>Support expert pour résoudre les problèmes techniques, configurer des réseaux et maintenir les systèmes informatiques.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Services de Consultation</h3>
+                        <p>Conseils professionnels pour configurer des systèmes sécurisés, améliorer l'infrastructure IT et optimiser la technologie selon vos besoins.</p>
+                    </div>
+                    <div class="service-item">
+                        <h3>Solutions de Cybersécurité</h3>
+                        <p>Protégez vos données et systèmes avec notre expertise en cybersécurité. Nous vous aidons à éviter les menaces et à garantir votre sécurité numérique.</p>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>Reach out to me for consultations or inquiries.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Majid Tech Vision. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+        <section class="features">
+            <h2>Fonctionnalités Clés</h2>
+            <div class="features-container">
+                <div class="feature-item">
+                    <img src="andrea-de-santis-zwd435-ewb4-unsplash.jpg" alt="Support Technique 24h/24">
+                    <h3>Support Technique 24h/24</h3>
+                    <p>Notre équipe d'experts est disponible à tout moment pour fournir une assistance et garantir le bon fonctionnement de vos systèmes sans interruption.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="carlos-muza-hpjSkU2UYSU-unsplash.jpg" alt="Ressources Exclusives">
+                    <h3>Accès à des Ressources Exclusives</h3>
+                    <p>Bénéficiez d'un accès à une collection premium de tutoriels, d'eBooks et de cours conçus pour améliorer vos compétences dans les technologies de pointe.</p>
+                </div>
+                <div class="feature-item">
+                    <img src="jasmin-ne-SYOKzmmChUg-unsplash.jpg" alt="Solutions Personnalisées">
+                    <h3>Solutions Personnalisées</h3>
+                    <p>Nous concevons des solutions sur mesure pour répondre à vos besoins technologiques spécifiques, vous aidant à obtenir des résultats mesurables efficacement.</p>
+                </div>
+            </div>
+        </section>            
+        <main>
+            <!-- Section Livres -->
+            <section id="books" class="books-section">
+                <h2>Livres Disponibles</h2>
+                <p>Explorez notre collection organisée par catégories pour enrichir vos connaissances.</p>
+                <div class="book-categories">
+                    <button onclick="showBooks('computer')">Livres sur l'Informatique</button>
+                    <button onclick="showBooks('story')">Livres d'Histoires</button>
+                    <button onclick="showBooks('ai')">Livres sur l'IA</button>
+                    <button onclick="showBooks('microsoft')">Microsoft Office</button>
+                    <button onclick="showBooks('cybersecurity')">Cybersécurité</button>
+                </div>
+                <div id="book-list" class="book-list" style="display: none;">
+                    <ul id="books-container"></ul>
+                </div>
+            </section>        
+        
+            <!-- Section Cours -->
+            <section id="courses" class="courses-section">
+                <h2>Nos Cours</h2>
+                <p>Sélectionnez une catégorie pour explorer les cours disponibles :</p>
+                <div class="course-categories">
+                    <button onclick="showCourses('programming')">Programmation</button>
+                    <button onclick="showCourses('cybersecurity')">Cybersécurité</button>
+                    <button onclick="showCourses('ai')">Intelligence Artificielle</button>
+                    <button onclick="showCourses('networking')">Réseaux Informatiques</button>
+                    <button onclick="showCourses('microsoft')">Microsoft Office</button>
+                </div>
+                <div id="courses-list" class="courses-list">
+                    <!-- Liste Dynamique des Cours Apparaîtra Ici -->
+                </div>
+            </section>        
+        
+            <!-- Section Contact -->
+            <section id="contact" class="contact-section">
+                <h2>Contactez-Nous</h2>
+                <p>Vous avez des questions ou besoin d'aide ? Remplissez le formulaire ci-dessous pour nous contacter.</p>
+                <form action="contact.php" method="POST" class="contact-form">
+                    <input type="text" name="name" placeholder="Votre Nom" required>
+                    <input type="email" name="email" placeholder="Votre Email" required>
+                    <textarea name="message" placeholder="Votre Message" rows="5" required></textarea>
+                    <button type="submit">Envoyer le Message</button>
+                </form>
+            </section>        
+            <section class="innovations">
+                <h2>Innovations Technologiques</h2>
+                <div class="innovations-container">
+                    <div class="innovation-item">
+                        <img src="igor-omilaev-eGGFZ5X2LnA-unsplash.jpg" alt="Intelligence Artificielle">
+                        <h3>Intelligence Artificielle</h3>
+                        <p>Explorez le pouvoir de l'IA pour transformer les industries grâce à une prise de décision intelligente, à l'automatisation et à l'analyse prédictive.</p>
+                    </div>
+                    <div class="innovation-item">
+                        <img src="pexels-tima-miroshnichenko-5380792.jpg" alt="Cybersécurité">
+                        <h3>Avancées en Cybersécurité</h3>
+                        <p>Découvrez les derniers outils et techniques pour protéger vos actifs numériques des menaces cybernétiques évolutives.</p>
+                    </div>
+                    <div class="innovation-item">
+                        <img src="pexels-junior-teixeira-1064069-2072060.jpg" alt="Cloud Computing">
+                        <h3>Cloud Computing</h3>
+                        <p>Découvrez comment les plateformes cloud révolutionnent le stockage de données, la collaboration et l'évolutivité à l'ère numérique.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="future-technology">
+                <h2>L'Avenir de la Technologie</h2>
+                <div class="future-container">
+                    <div class="future-item">
+                        <div class="icon">&#128187;</div> <!-- Icône Ordinateur -->
+                        <h3>Apprentissage Automatique</h3>
+                        <p>Les algorithmes qui évoluent avec les données façonnent l'avenir de l'IA et de l'automatisation.</p>
+                    </div>
+                    <div class="future-item">
+                        <div class="icon">&#128302;</div> <!-- Icône Bouclier -->
+                        <h3>Informatique Quantique</h3>
+                        <p>Libérez une puissance de calcul sans précédent grâce aux avancées quantiques.</p>
+                    </div>
+                    <div class="future-item">
+                        <div class="icon">&#128241;</div> <!-- Icône Smartphone -->
+                        <h3>Connectivité 5G</h3>
+                        <p>Faites l'expérience de vitesses ultra-rapides et de technologies de communication de nouvelle génération.</p>
+                    </div>
+                </div>
+            </section>   
+            <button id="toggle-chatbot" onclick="toggleChatbot()">Chat</button> 
+            <div id="chatbot-container">
+                <button id="download-chat" onclick="downloadChatHistory()">Télécharger l'Historique des Chats</button>
+                <div id="chatbot">
+                    <div id="chatbot-header">Assistant Virtuel</div>
+                    <div id="chatbot-messages"></div>
+                    <div id="chatbot-input">
+                    </div>
+                    <div id="chatbot-input">
+                        <input type="text" id="user-input" placeholder="Tapez votre message..." />
+                        <button onclick="sendMessage()">Envoyer</button>
+                        <button onclick="startVoiceInput()">🎤</button>
+                    </div>                
+                </div>            
+            </div>
+            <section class="newsletter">
+                <h2>Restez Informé</h2>
+                <p>Inscrivez-vous à notre newsletter pour recevoir les derniers tutoriels, astuces et ressources directement dans votre boîte mail !</p>
+                <form action="#" method="POST">
+                    <input type="email" name="email" placeholder="Entrez votre email" required>
+                    <button type="submit">S'inscrire</button>
+                </form>
+            </section>      
+            </main>
+            
+            <footer>
+                <p>Suivez-nous :</p>
+                <div class="social-icons">
+                    <a href="https://facebook.com" target="_blank">Facebook</a>
+                    <a href="https://twitter.com" target="_blank">Twitter</a>
+                    <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+                    <a href="https://youtube.com" target="_blank">YouTube</a>
+                    <a href="https://TikTok.com" target="_blank">TikTok</a>
+                    <a href="https://Instagram.com" target="_blank">Instagram</a>
+                </div>
+                <footer>
+                    <p>&copy; 2024 Majid Tech Vision. Tous droits réservés.</p>
+                </footer>
+            
+            <script>
+                function showMore() {
+                    document.getElementById('about-full').style.display = 'block';
+                    document.getElementById('read-more-btn').style.display = 'none';
+                }
+            
+                function showSection(sectionId) {
+                    document.querySelectorAll('main section').forEach(section => {
+                        section.style.display = 'none';
+                    });
+                    document.getElementById(sectionId).style.display = 'block';
+                }
+            
+                function scrollToTop() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+            </script>
+            <script src="scripts.js"></script>
+            </body>
+            </html>
+                            
