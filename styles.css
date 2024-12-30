@@ -177,7 +177,7 @@ button#read-more-btn:hover {
     background-color: #0056b3;
 }
 .welcome-banner {
-    background-image: url('/Users/mac/majid-vision/marvin-meyer-SYTO3xs06fU-unsplash.jpg'); /* Replace with actual image path */
+    background-image: url('unsplash.jpg'); /* Replace with actual image path */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
