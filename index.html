@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Majid Tech Vision</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+<!-- Login Form -->
+<div id="login-container" style="display: none;">
+    <!-- Close button -->
+    <button onclick="closeForms()" style="float: right; background: none; border: none; font-size: 18px; cursor: pointer;">&times;</button>
+    <form id="login-form" onsubmit="authenticateUser(event)">
+        <h2>Log In</h2>
+        <input type="text" id="username" placeholder="Enter your name" required>
+        <input type="email" id="login-email" placeholder="Enter your email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button type="submit">Start Chat</button>
+    </form>
+</div>
+
+<!-- Sign-Up Form -->
+<div id="signup-container" style="display: none;">
+    <!-- Close button -->
+    <button onclick="closeForms()" style="float: right; background: none; border: none; font-size: 18px; cursor: pointer;">&times;</button>
+    <form id="signup-form" onsubmit="registerUser(event)">
+        <h2>Sign Up</h2>
+        <input type="text" id="signup-username" placeholder="Enter your name" required>
+        <input type="email" id="signup-email" placeholder="Enter your email" required>
+        <input type="password" id="signup-password" placeholder="Create a password" required>
+        <button type="submit">Sign Up</button>
+    </form>
+</div>
+<header>
+    <div class="top-bar">
+        <nav>
+            <ul class="top-nav">
+                <li><a href="#" onclick="scrollToTop()" aria-label="Navigate to Home">Home</a></li>
+                <li><a href="about.html" target="_blank" aria-label="Learn more about me in a new tab">About Me</a></li>
+                <li><a href="#services" onclick="showSection('services')" aria-label="Explore our services">Services</a></li>
+                <li><a href="#books" onclick="showSection('books')" aria-label="View available books">Books</a></li>
+                <li><a href="#courses" onclick="showSection('courses')" aria-label="Discover courses">Courses</a></li>
+                <li><a href="#contact" onclick="showSection('contact')" aria-label="Contact us">Contact</a></li>
+            </ul>
+        </nav>
+    </div>              
+        <div class="language-switcher">
+            <a href="index.html" lang="en">English</a> |
+            <a href="index-ar.html" lang="ar">العربية</a> |
+            <a href="index-fr.html" lang="fr">Français</a> |
+            <a href="#" id="login-link" onclick="showLogin()">Log In</a> |
+            <a href="#" id="signup-link" onclick="showSignUp()">Sign Up</a>
+        </div>
+    </div>
+    <div class="welcome-banner">
+        <img src="majid-vision/unsplash.jpg" alt="Banner Image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;">
+        <div class="banner-overlay">
+            <h1>Welcome to Majid Tech Vision</h1>
+            <p>Your gateway to technology tutorials, books, and support.</p>
+            <a href="#services" class="cta-button">Explore Services</a>
+        </div>
+    </div>
+    
+    </div>
+</header>
+<main>
+    <section class="featured-section">
+        <div class="featured-container">
+            <div class="featured-image">
+                <img src="pexels-athena-2582937.jpg" alt="A modern workspace showcasing technology and creativity.">
+            </div>
+            <div class="featured-text">
+                <h2>Empowering Through Technology</h2>
+                <p>At Majid Tech Vision, we are committed to empowering individuals and businesses to thrive in the rapidly evolving digital world. We achieve this by providing cutting-edge technology solutions, delivering comprehensive and engaging tutorials, and offering a rich repository of practical resources. Our goal is to equip our clients with the knowledge and tools they need to not only adapt to the digital age but to excel in it.</p>
+            </div>
+        </div>
+    </section>    
+    <section class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial-container">
+            <div class="testimonial">
+                <p>"Majid Tech Vision helped me configure my network effortlessly. The guidance was clear, and the support was amazing!"</p>
+                <span>- John Doe, IT Specialist</span>
+            </div>
+            <div class="testimonial">
+                <p>"Their cybersecurity training boosted my skills and confidence. Highly recommended!"</p>
+                <span>- Sarah Ali, Student</span>
+            </div>
+            <div class="testimonial">
+                <p>"Quick and efficient technical support for my small business. They are lifesavers!"</p>
+                <span>- Michael Smith, Entrepreneur</span>
+            </div> 
+            <section class="features">
+                <h2>Key Features</h2>
+                <div class="features-container">
+                    <div class="feature-item">
+                        <img src="andrea-de-santis-zwd435-ewb4-unsplash.jpg" alt="A technician providing 24/7 support">
+                        <h3>24/7 Technical Support</h3>
+                        <p>Our expert team is available round-the-clock to provide assistance and ensure your systems run smoothly without interruptions.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="carlos-muza-hpjSkU2UYSU-unsplash.jpg" alt="Person working on premium resources">
+                        <h3>Access to Exclusive Resources</h3>
+                        <p>Enjoy access to a premium collection of tutorials, eBooks, and courses designed to enhance your skills in cutting-edge technologies.</p>
+                    </div>
+                    <div class="feature-item">
+                        <img src="jasmin-ne-SYOKzmmChUg-unsplash.jpg" alt="Custom solutions for tech needs">
+                        <h3>Customized Solutions</h3>
+                        <p>We craft tailored solutions to meet your specific technological needs, helping you achieve measurable results efficiently.</p>
+                    </div>
+                </div>
+            </section>            
+</main>
+<!-- About Me Section -->
+<section id="about" class="hidden-section">
+    <div class="about-container">
+        <div class="about-image">
+            <img src="yourphoto.jpg" alt="Abdelmadjid's Photo">
+        </div>
+        <div class="about-text">
+            <h2>About Me</h2>
+            <p id="about-preview">Hello! My name is Abdelmadjid, and I am a passionate tech enthusiast dedicated to making technology accessible and empowering for everyone. My journey through education and professional development has been both rewarding and transformative.</p>
+            <div id="about-full" class="hidden-content">
+                <p>I am currently a student at Salt Lake Community College (SLCC) in Utah, pursuing a major in Computer Science with a focus on Cybersecurity...</p>
+                <p>My academic background includes diplomas in Computer Networking and Information Technologies...</p>
+                <p>Thank you for taking the time to learn about me. I’m excited to connect and contribute to the ever-evolving world of technology!</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Newsletter Section -->
+<section class="newsletter">
+    <h2>Stay Updated</h2>
+    <p>Sign up for our newsletter to get the latest tutorials, tips, and resources directly in your inbox!</p>
+    <form action="#" method="POST" id="newsletter-form">
+        <input type="email" name="email" id="newsletter-email" placeholder="Enter your email" aria-label="Email address" required>
+        <button type="submit">Subscribe</button>
+        <p id="newsletter-message" style="display: none;"></p>
+    </form>
+</section>
+
+<!-- Footer Section -->
+<footer>
+    <div class="footer-container">
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank" aria-label="Follow us on Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="https://twitter.com" target="_blank" aria-label="Follow us on Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="https://linkedin.com" target="_blank" aria-label="Follow us on LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://youtube.com" target="_blank" aria-label="Follow us on YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://tiktok.com" target="_blank" aria-label="Follow us on TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://instagram.com" target="_blank" aria-label="Follow us on Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2024 Majid Tech Vision. All rights reserved.</p>
+    </div>
+</footer>
+<script src="script.js" defer></script>
+</body>
+</html>
