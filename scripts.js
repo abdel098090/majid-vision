@@ -157,3 +157,25 @@ function showMore() {
         readMoreBtn.textContent = "Read More";
     }
 }
+// Function to Show Modal
+function showCourseDetails(title, description) {
+    document.getElementById("modal-title").textContent = title;
+    document.getElementById("modal-description").textContent = description;
+    document.getElementById("course-modal").style.display = "flex";
+}
+
+// Function to Close Modal
+function closeModal() {
+    document.getElementById("course-modal").style.display = "none";
+}
+document.addEventListener('DOMContentLoaded', () => {
+    const readMoreBtn = document.getElementById('read-more-btn');
+    const aboutFullContent = document.getElementById('about-full');
+
+    readMoreBtn.addEventListener('click', () => {
+        aboutFullContent.classList.toggle('active');
+        readMoreBtn.textContent = aboutFullContent.classList.contains('active') 
+            ? 'Show Less' 
+            : 'Read More';
+    });
+});
