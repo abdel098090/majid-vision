@@ -1863,3 +1863,122 @@ body {
         font-size: 1.2rem;
     }
 }
+/* About Section - General */
+.about-section {
+    position: relative;
+    padding: 40px 20px;
+    background: url('background.jpg') no-repeat center center/cover;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+
+.about-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+.about-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column; /* Stack items vertically by default */
+    align-items: center;
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* About Image */
+.about-image {
+    margin-bottom: 20px; /* Adds space between image and text */
+}
+
+.about-image img {
+    width: 150px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
+}
+
+.about-image img:hover {
+    transform: scale(1.1);
+}
+
+/* About Text */
+.about-text {
+    max-width: 600px;
+    text-align: justify; /* Justifies text for better alignment */
+}
+
+.about-text h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.about-text p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Responsive Design */
+@media (min-width: 769px) {
+    .about-container {
+        flex-direction: row; /* Side-by-side layout for larger screens */
+        align-items: center;
+        text-align: left;
+    }
+
+    .about-image {
+        flex: 1;
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+
+    .about-text {
+        flex: 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column; /* Stacked layout for mobile screens */
+        text-align: center;
+    }
+
+    .about-image img {
+        width: 120px; /* Scales down image size for smaller screens */
+    }
+
+    .about-text h2 {
+        font-size: 1.5rem;
+    }
+
+    .about-text p {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-image img {
+        width: 100px; /* Further reduces image size on very small screens */
+    }
+
+    .about-text h2 {
+        font-size: 1.3rem;
+    }
+
+    .about-text p {
+        font-size: 0.85rem;
+        line-height: 1.5;
+    }
+}
