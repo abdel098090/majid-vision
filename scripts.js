@@ -179,3 +179,138 @@ document.addEventListener('DOMContentLoaded', () => {
             : 'Read More';
     });
 });
+console.log("Script loaded");
+
+// Select the toggle button
+const darkModeToggle = document.getElementById('dark-mode-toggle');
+
+if (!darkModeToggle) {
+    console.error("Toggle button not found!");
+} else {
+    console.log("Toggle button found");
+}
+
+// Check for saved user preference
+if (localStorage.getItem('dark-mode') === 'enabled') {
+    console.log("Dark mode enabled from localStorage");
+    document.body.classList.add('dark-mode');
+} else {
+    console.log("Dark mode not enabled in localStorage");
+}
+
+// Add click event to toggle button
+darkModeToggle?.addEventListener('click', () => {
+    console.log("Toggle button clicked");
+
+    document.body.classList.toggle('dark-mode');
+    console.log(
+        document.body.classList.contains('dark-mode')
+            ? "Dark mode activated"
+            : "Dark mode deactivated"
+    );
+
+    // Save user preference to localStorage
+    if (document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('dark-mode', 'enabled');
+        console.log("Dark mode preference saved to localStorage");
+    } else {
+        localStorage.setItem('dark-mode', 'disabled');
+        console.log("Light mode preference saved to localStorage");
+    }
+});
+// Test JavaScript
+console.log("JavaScript is linked!");
+alert("JavaScript is working!");
+document.addEventListener("DOMContentLoaded", () => {
+    const contactForm = document.getElementById("contact-form");
+    const formStatus = document.getElementById("form-status");
+
+    contactForm.addEventListener("submit", (event) => {
+        event.preventDefault(); // Prevent form submission
+
+        // Get form values
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
+
+        // Validate fields
+        if (!name || !email || !message) {
+            formStatus.textContent = "All fields are required!";
+            formStatus.style.color = "red";
+            return;
+        }
+
+        if (!validateEmail(email)) {
+            formStatus.textContent = "Please enter a valid email!";
+            formStatus.style.color = "red";
+            return;
+        }
+
+        // Simulate form submission (you can replace this with actual backend logic)
+        formStatus.textContent = "Message sent successfully!";
+        formStatus.style.color = "green";
+
+        // Clear form fields
+        contactForm.reset();
+    });
+
+    // Email validation function
+    function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const portfolioItems = document.querySelectorAll(".portfolio-item img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.querySelector(".lightbox-image");
+    const closeBtn = document.querySelector(".lightbox .close");
+    const prevBtn = document.querySelector(".lightbox .prev");
+    const nextBtn = document.querySelector(".lightbox .next");
+
+    let currentIndex = 0;
+
+   document.addEventListener("DOMContentLoaded", () => {
+    const portfolioItems = document.querySelectorAll(".portfolio-item img");
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImage = document.querySelector(".lightbox-image");
+    const closeBtn = document.querySelector(".lightbox .close");
+    const prevBtn = document.querySelector(".lightbox .prev");
+    const nextBtn = document.querySelector(".lightbox .next");
+
+    let currentIndex = 0;
+
+    // Open Lightbox
+    portfolioItems.forEach((item, index) => {
+        item.addEventListener("click", () => {
+            currentIndex = index;
+            lightboxImage.src = item.src;
+            lightbox.classList.add("visible");
+        });
+    });
+
+    // Close Lightbox
+    closeBtn.addEventListener("click", () => {
+        lightbox.classList.remove("visible");
+    });
+
+    // Navigate Previous
+    prevBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + portfolioItems.length) % portfolioItems.length;
+        lightboxImage.src = portfolioItems[currentIndex].src;
+    });
+
+    // Navigate Next
+    nextBtn.addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % portfolioItems.length;
+        lightboxImage.src = portfolioItems[currentIndex].src;
+    });
+
+    // Close Lightbox on Click Outside Image
+    lightbox.addEventListener("click", (e) => {
+        if (e.target === lightbox) {
+            lightbox.classList.remove("visible");
+        }
+    });
+});
+
