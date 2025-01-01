@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Portfolio</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html" class="active">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="portfolio" class="portfolio-section">
+            <h2>My Portfolio</h2>
+            <div class="portfolio-container">
+                <!-- Portfolio Item 1 -->
+                <div class="portfolio-item">
+                    <img src="altumcode-PNbDkQ2DDgM-unsplash.jpg" alt="Networking Application">
+                    <div class="portfolio-overlay">
+                        <h3>TechConnect - Networking</h3>
+                        <p>An innovative networking application that connects professionals and tech enthusiasts. The platform features secure communication, real-time collaboration, and profile showcasing. Built using cutting-edge web technologies with a focus on seamless user experience and accessibility.</p>
+                    </div>
+                </div>        
+                <!-- Portfolio Item 2 -->
+                <div class="portfolio-item">
+                    <img src="pexels-myleskuo.jpg" alt="Cybersecurity Dashboard">
+                    <div class="portfolio-overlay">
+                        <h3>SecureHub - Cybersecurity</h3>
+                        <p>A modern cybersecurity dashboard designed to monitor, analyze, and secure online activities. This project incorporates real-time threat detection and data encryption features, offering an intuitive interface for managing security protocols.</p>
+                    </div>
+                </div>        
+                <!-- Portfolio Item 3 -->
+                <div class="portfolio-item">
+                    <img src="arif-riyanto.jpg" alt="Project 3">
+                    <div class="portfolio-overlay">
+                        <h3>CodeMaster</h3>
+                        <p>This project is a responsive personal portfolio website designed to showcase skills, projects, and professional experience. Built using HTML, CSS, and JavaScript, the website includes a clean and modern design, interactive features, and smooth navigation.</p>
+                        <p>It's an excellent example of how web development techniques can create a visually appealing and user-friendly online presence.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lightbox Gallery -->
+<div id="lightbox" class="lightbox hidden">
+    <span class="close">&times;</span>
+    <img class="lightbox-image" src="" alt="Project Image">
+    <div class="lightbox-navigation">
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+    </div>
+</div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
