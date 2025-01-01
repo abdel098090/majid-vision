@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <!-- Login Form -->
@@ -37,6 +38,7 @@
     </form>
 </div>
 <header>
+    <button id="dark-mode-toggle">Toggle Dark Mode</button>
     <div class="top-bar">
         <nav>
             <ul class="top-nav">
@@ -206,7 +208,6 @@
         </div>
     </div>
 </section>
-
 <section id="books" class="books-section">
     <div class="books-overlay">
         <div class="container">
@@ -323,6 +324,36 @@
             <button onclick="showCourseDetails('Artificial Intelligence (AI)', 'Introduction to AI concepts and practical applications.')">Learn More</button>
         </div>
     </div>
+</section><section id="portfolio" class="portfolio-section">
+    <h2>My Portfolio</h2>
+    <div class="portfolio-container">
+        <!-- Portfolio Item 1 -->
+        <div class="portfolio-item">
+            <img src="altumcode-PNbDkQ2DDgM-unsplash.jpg" alt="Networking Application">
+            <div class="portfolio-overlay">
+                <h3>TechConnect - Networking</h3>
+                <p>An innovative networking application that connects professionals and tech enthusiasts. The platform features secure communication, real-time collaboration, and profile showcasing. Built using cutting-edge web technologies with a focus on seamless user experience and accessibility.</p>
+            </div>
+        </div>        
+        <!-- Portfolio Item 2 -->
+        <div class="portfolio-item">
+            <img src="pexels-myleskuo.jpg" alt="Cybersecurity Dashboard">
+            <div class="portfolio-overlay">
+                <h3>SecureHub - Cybersecurity</h3>
+                <p>A modern cybersecurity dashboard designed to monitor, analyze, and secure online activities. This project incorporates real-time threat detection and data encryption features, offering an intuitive interface for managing security protocols.</p>
+            </div>
+        </div>        
+        <!-- Portfolio Item 3 -->
+        <div class="portfolio-item">
+            <img src="arif-riyanto.jpg" alt="Project 3">
+            <div class="portfolio-overlay">
+                <h3>CodeMaster</h3>
+                <p>This project is a responsive personal portfolio website designed to showcase skills, projects, and professional experience. Built using HTML, CSS, and JavaScript, the website includes a clean and modern design, interactive features, and smooth navigation.<p> 
+                <p>It's an excellent example how web development techniques can create a visually appealing and user-friendly online presence..</p>
+            </div>
+        </div>
+        <!-- Add more items as needed -->
+    </div>
 </section>
 <!-- Modal for Course Details -->
 <div id="course-modal" class="modal">
@@ -332,6 +363,25 @@
         <p id="modal-description"></p>
     </div>
 </div>
+<section id="contact" class="contact-section">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" placeholder="Your Name" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Your Email" required>
+        </div>
+        <div class="form-group">
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn">Send Message</button>
+    </form>
+    <p id="form-status" class="form-status"></p>
+</section>
 <!-- Newsletter Section -->
 <section class="newsletter">
     <h2>Stay Updated</h2>
@@ -358,5 +408,6 @@
     </div>
 </footer>
 <script src="script.js" defer></script>
+<script src="script.js"></script>
 </body>
 </html>
