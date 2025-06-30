@@ -1,316 +1,179 @@
-// Smooth scroll to sections
-function showSection(sectionId) {
-    const section = document.getElementById(sectionId);
-    if (section) {
-        section.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+// DARK MODE TOGGLE
+const darkToggle = document.getElementById('dark-toggle');
+
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
 }
 
-// Scroll to the top of the page
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+function toggleDarkMode() {
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  setTheme(newTheme);
 }
 
-// Toggle "Read More" functionality
-function showMore() {
-    const fullContent = document.getElementById("about-full");
-    const readMoreBtn = document.getElementById("read-more-btn");
+darkToggle?.addEventListener('click', toggleDarkMode);
 
-    if (fullContent.style.display === "none" || fullContent.style.display === "") {
-        fullContent.style.display = "block";
-        readMoreBtn.textContent = "Read Less";
-        readMoreBtn.setAttribute("aria-expanded", "true");
-    } else {
-        fullContent.style.display = "none";
-        readMoreBtn.textContent = "Read More";
-        readMoreBtn.setAttribute("aria-expanded", "false");
-    }
-}
-
-// Smooth scroll for scroll-down icon
-document.querySelector('.scroll-down a').addEventListener('click', (e) => {
-    e.preventDefault();
-    const targetId = e.target.getAttribute('href').substring(1);
-    const targetSection = document.getElementById(targetId);
-    if (targetSection) {
-        targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-});
-
-// Language Switching Functionality
-function switchLanguage(language) {
-    // Hide all language-specific sections
-    const sections = document.querySelectorAll('.language-section');
-    sections.forEach(section => section.style.display = 'none');
-
-    // Show the selected language section
-    const selectedSection = document.getElementById(`start-discussion-${language}`);
-    if (selectedSection) {
-        selectedSection.style.display = 'block';
-    }
-}
-// Testimonials Carousel Functionality
-document.addEventListener("DOMContentLoaded", () => {
-    let currentIndex = 0; // Current active testimonial
-    const items = document.querySelectorAll('.carousel-item'); // All testimonials
-    const prevBtn = document.querySelector('.prev-btn'); // Previous button
-    const nextBtn = document.querySelector('.next-btn'); // Next button
-
-    function showItem(index) {
-        // Remove 'active' class from all items
-        items.forEach(item => item.classList.remove('active'));
-        
-        // Add 'active' class to the current item
-        if (items[index]) {
-            items[index].classList.add('active');
-        }
-    }
-
-    // Previous Button Click Event
-    prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
-        showItem(currentIndex);
-    });
-
-    // Next Button Click Event
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % items.length;
-        showItem(currentIndex);
-    });
-
-    // Initialize the first testimonial
-    showItem(currentIndex);
-});// Wait for the DOM to load before running the script
-document.addEventListener("DOMContentLoaded", () => {
-    let currentIndex = 0; // Index of the currently visible testimonial
-    const items = document.querySelectorAll('.carousel-item'); // All testimonials
-    const prevBtn = document.querySelector('.prev-btn'); // Previous button
-    const nextBtn = document.querySelector('.next-btn'); // Next button
-
-    function showItem(index) {
-        // Hide all items and remove 'active' class
-        items.forEach(item => item.classList.remove('active'));
-        
-        // Show the current item
-        items[index].classList.add('active');
-    }
-
-    // Previous Button Click
-    prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + items.length) % items.length;
-        showItem(currentIndex);
-    });
-
-    // Next Button Click
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % items.length;
-        showItem(currentIndex);
-    });
-
-    // Initialize the carousel by showing the first item
-    showItem(currentIndex);
-});
-// Newsletter Form Submission
-document.getElementById('newsletter-form').addEventListener('submit', (e) => {
-    e.preventDefault(); // Prevent actual form submission
-
-    const emailInput = document.getElementById('newsletter-email');
-    const message = document.getElementById('newsletter-message');
-
-    if (emailInput.value.trim() !== '') {
-        message.style.display = 'block';
-        message.textContent = 'Thank you for subscribing!';
-        message.style.color = 'green';
-
-        // Clear the email field after submission
-        emailInput.value = '';
-    } else {
-        message.style.display = 'block';
-        message.textContent = 'Please enter a valid email address.';
-        message.style.color = 'red';
-    }
-});
-document.addEventListener("DOMContentLoaded", () => {
-    const featuresContainer = document.querySelector('.features-container');
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                featuresContainer.style.opacity = 1;
-                featuresContainer.style.transform = 'translateY(0)';
-            }
-        });
-    }, { threshold: 0.3 });
-
-    observer.observe(featuresContainer);
-});
-// Toggle Read More
-function showMore() {
-    const fullContent = document.getElementById("about-full");
-    const readMoreBtn = document.getElementById("read-more-btn");
-
-    if (fullContent.style.display === "none" || fullContent.style.display === "") {
-        fullContent.style.display = "block";
-        readMoreBtn.textContent = "Read Less";
-    } else {
-        fullContent.style.display = "none";
-        readMoreBtn.textContent = "Read More";
-    }
-}
-// Function to Show Modal
-function showCourseDetails(title, description) {
-    document.getElementById("modal-title").textContent = title;
-    document.getElementById("modal-description").textContent = description;
-    document.getElementById("course-modal").style.display = "flex";
-}
-
-// Function to Close Modal
-function closeModal() {
-    document.getElementById("course-modal").style.display = "none";
-}
 document.addEventListener('DOMContentLoaded', () => {
-    const readMoreBtn = document.getElementById('read-more-btn');
-    const aboutFullContent = document.getElementById('about-full');
-
-    readMoreBtn.addEventListener('click', () => {
-        aboutFullContent.classList.toggle('active');
-        readMoreBtn.textContent = aboutFullContent.classList.contains('active') 
-            ? 'Show Less' 
-            : 'Read More';
-    });
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  setTheme(savedTheme);
 });
-console.log("Script loaded");
 
-// Select the toggle button
-const darkModeToggle = document.getElementById('dark-mode-toggle');
 
-if (!darkModeToggle) {
-    console.error("Toggle button not found!");
-} else {
-    console.log("Toggle button found");
-}
+// LANGUAGE SWITCHER TOGGLE
+document.getElementById("lang-toggle")?.addEventListener("click", () => {
+  document.getElementById("lang-menu")?.classList.toggle("show");
+});
 
-// Check for saved user preference
-if (localStorage.getItem('dark-mode') === 'enabled') {
-    console.log("Dark mode enabled from localStorage");
-    document.body.classList.add('dark-mode');
-} else {
-    console.log("Dark mode not enabled in localStorage");
-}
-
-// Add click event to toggle button
-darkModeToggle?.addEventListener('click', () => {
-    console.log("Toggle button clicked");
-
-    document.body.classList.toggle('dark-mode');
-    console.log(
-        document.body.classList.contains('dark-mode')
-            ? "Dark mode activated"
-            : "Dark mode deactivated"
-    );
-
-    // Save user preference to localStorage
-    if (document.body.classList.contains('dark-mode')) {
-        localStorage.setItem('dark-mode', 'enabled');
-        console.log("Dark mode preference saved to localStorage");
+// LANGUAGE SWITCHER CYCLE
+const langSwitcher = document.getElementById('lang-switcher');
+if (langSwitcher) {
+  langSwitcher.addEventListener('click', () => {
+    const currentPage = window.location.pathname;
+    if (currentPage.includes('index-fr')) {
+      window.location.href = 'index-ar.html';
+    } else if (currentPage.includes('index-ar')) {
+      window.location.href = 'index.html';
     } else {
-        localStorage.setItem('dark-mode', 'disabled');
-        console.log("Light mode preference saved to localStorage");
+      window.location.href = 'index-fr.html';
     }
-});
-// Test JavaScript
-console.log("JavaScript is linked!");
-alert("JavaScript is working!");
-document.addEventListener("DOMContentLoaded", () => {
-    const contactForm = document.getElementById("contact-form");
-    const formStatus = document.getElementById("form-status");
+  });
+}
 
-    contactForm.addEventListener("submit", (event) => {
-        event.preventDefault(); // Prevent form submission
 
-        // Get form values
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const message = document.getElementById("message").value.trim();
+// LOGIN & REGISTER MODALS
+const loginBtn = document.getElementById('loginBtn');
+const registerBtn = document.getElementById('registerBtn');
+const loginModal = document.getElementById('loginModal');
+const registerModal = document.getElementById('registerModal');
+const closeLogin = document.getElementById('closeLogin');
+const closeRegister = document.getElementById('closeRegister');
 
-        // Validate fields
-        if (!name || !email || !message) {
-            formStatus.textContent = "All fields are required!";
-            formStatus.style.color = "red";
-            return;
-        }
+loginBtn?.addEventListener('click', () => loginModal?.classList.remove('hidden'));
+registerBtn?.addEventListener('click', () => registerModal?.classList.remove('hidden'));
+closeLogin?.addEventListener('click', () => loginModal?.classList.add('hidden'));
+closeRegister?.addEventListener('click', () => registerModal?.classList.add('hidden'));
 
-        if (!validateEmail(email)) {
-            formStatus.textContent = "Please enter a valid email!";
-            formStatus.style.color = "red";
-            return;
-        }
-
-        // Simulate form submission (you can replace this with actual backend logic)
-        formStatus.textContent = "Message sent successfully!";
-        formStatus.style.color = "green";
-
-        // Clear form fields
-        contactForm.reset();
-    });
-
-    // Email validation function
-    function validateEmail(email) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(email);
-    }
-});
-document.addEventListener("DOMContentLoaded", () => {
-    const portfolioItems = document.querySelectorAll(".portfolio-item img");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.querySelector(".lightbox-image");
-    const closeBtn = document.querySelector(".lightbox .close");
-    const prevBtn = document.querySelector(".lightbox .prev");
-    const nextBtn = document.querySelector(".lightbox .next");
-
-    let currentIndex = 0;
-
-   document.addEventListener("DOMContentLoaded", () => {
-    const portfolioItems = document.querySelectorAll(".portfolio-item img");
-    const lightbox = document.getElementById("lightbox");
-    const lightboxImage = document.querySelector(".lightbox-image");
-    const closeBtn = document.querySelector(".lightbox .close");
-    const prevBtn = document.querySelector(".lightbox .prev");
-    const nextBtn = document.querySelector(".lightbox .next");
-
-    let currentIndex = 0;
-
-    // Open Lightbox
-    portfolioItems.forEach((item, index) => {
-        item.addEventListener("click", () => {
-            currentIndex = index;
-            lightboxImage.src = item.src;
-            lightbox.classList.add("visible");
-        });
-    });
-
-    // Close Lightbox
-    closeBtn.addEventListener("click", () => {
-        lightbox.classList.remove("visible");
-    });
-
-    // Navigate Previous
-    prevBtn.addEventListener("click", () => {
-        currentIndex = (currentIndex - 1 + portfolioItems.length) % portfolioItems.length;
-        lightboxImage.src = portfolioItems[currentIndex].src;
-    });
-
-    // Navigate Next
-    nextBtn.addEventListener("click", () => {
-        currentIndex = (currentIndex + 1) % portfolioItems.length;
-        lightboxImage.src = portfolioItems[currentIndex].src;
-    });
-
-    // Close Lightbox on Click Outside Image
-    lightbox.addEventListener("click", (e) => {
-        if (e.target === lightbox) {
-            lightbox.classList.remove("visible");
-        }
-    });
+window.addEventListener('click', (e) => {
+  if (e.target === loginModal) loginModal?.classList.add('hidden');
+  if (e.target === registerModal) registerModal?.classList.add('hidden');
 });
 
+
+// READ MORE TOGGLE
+const readMoreBtn = document.getElementById('readMoreBtn');
+const moreText = document.getElementById('moreText');
+
+readMoreBtn?.addEventListener('click', () => {
+  if (moreText?.classList.contains('hidden')) {
+    moreText.classList.remove('hidden');
+    readMoreBtn.textContent = 'Read Less';
+  } else {
+    moreText.classList.add('hidden');
+    readMoreBtn.textContent = 'Read More';
+  }
+});
+
+
+// COURSES MODAL
+const courseModal = document.getElementById('courseModal');
+const closeCourseModal = document.getElementById('closeCourseModal');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+
+const courseDescriptions = {
+  1: {
+    title: 'Web Development Basics',
+    desc: 'Learn HTML, CSS, and JavaScript from scratch. Perfect for beginners starting their coding journey.'
+  },
+  2: {
+    title: 'JavaScript Mastery',
+    desc: 'Deep dive into modern JavaScript with ES6, DOM manipulation, async programming, and real projects.'
+  },
+  3: {
+    title: 'Building with AI Tools',
+    desc: 'Explore how to integrate AI APIs, build intelligent UIs, and create your own virtual assistant.'
+  }
+};
+
+document.querySelectorAll('.info-btn').forEach(btn => {
+  btn.addEventListener('click', (e) => {
+    const card = e.target.closest('.course-card');
+    const id = card.getAttribute('data-course');
+    modalTitle.textContent = courseDescriptions[id].title;
+    modalDesc.textContent = courseDescriptions[id].desc;
+    courseModal.classList.remove('hidden');
+  });
+});
+
+closeCourseModal?.addEventListener('click', () => courseModal.classList.add('hidden'));
+window.addEventListener('click', (e) => {
+  if (e.target === courseModal) courseModal.classList.add('hidden');
+});
+
+
+// LIGHTBOX MODAL
+const closeLightbox = document.getElementById('closeLightbox');
+const lightbox = document.getElementById('lightbox');
+
+closeLightbox?.addEventListener('click', () => lightbox?.classList.add('hidden'));
+window.addEventListener('click', (e) => {
+  if (e.target === lightbox) lightbox?.classList.add('hidden');
+});
+
+
+// CONTACT FORM VALIDATION
+document.getElementById('contactForm')?.addEventListener('submit', function (e) {
+  const name = this.name.value.trim();
+  const email = this.email.value.trim();
+  const message = this.message.value.trim();
+  const msg = document.getElementById('formMsg');
+
+  if (!name || !email || !message) {
+    e.preventDefault();
+    msg.textContent = 'Please fill out all fields.';
+    msg.style.color = 'red';
+  } else if (!email.includes('@') || !email.includes('.')) {
+    e.preventDefault();
+    msg.textContent = 'Please enter a valid email address.';
+    msg.style.color = 'red';
+  } else {
+    msg.textContent = 'Sending...';
+    msg.style.color = 'green';
+  }
+});
+
+
+// TESTIMONIALS ROTATOR
+const testimonials = [
+  { text: "“Madjid Vision helped me build my first portfolio — now I freelance full-time!”", author: "– Samira, Web Developer" },
+  { text: "“Clear, practical lessons that made complex tech finally make sense.”", author: "– Ahmed, IT Student" },
+  { text: "“The AI tools tutorial blew my mind. Super clear and actually useful!”", author: "– Youssef, Entrepreneur" }
+];
+
+let testimonialIndex = 0;
+
+function rotateTestimonials() {
+  testimonialIndex = (testimonialIndex + 1) % testimonials.length;
+  document.getElementById("testimonialText").textContent = testimonials[testimonialIndex].text;
+  document.getElementById("testimonialAuthor").textContent = testimonials[testimonialIndex].author;
+}
+
+setInterval(rotateTestimonials, 5000);
+
+
+// NEWSLETTER FORM
+document.getElementById('newsletterForm')?.addEventListener('submit', function (e) {
+  e.preventDefault();
+  const email = document.getElementById('newsletterEmail').value.trim();
+  const msg = document.getElementById('newsletterMsg');
+
+  if (!email.includes('@') || !email.includes('.')) {
+    msg.textContent = 'Please enter a valid email address.';
+    msg.style.color = 'red';
+  } else {
+    msg.textContent = 'Thank you for subscribing!';
+    msg.style.color = 'green';
+    this.reset();
+  }
+});

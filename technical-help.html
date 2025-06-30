@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Technical Help – Madjid Vision</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="navbar sticky">
+    <div class="logo">Madjid Vision</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="lang-switcher">
+          <button id="lang-toggle">🌍</button>
+          <ul id="lang-menu" class="lang-menu hidden">
+            <li><a href="index.html">English</a></li>
+            <li><a href="index-fr.html">Français</a></li>
+            <li><a href="index-ar.html">العربية</a></li>
+          </ul>
+        </li>
+        <li><button id="dark-toggle">🌙</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <img src="tech_help.jpg" alt="Tech Support" />
+    <h1>Expert Technical Assistance</h1>
+  </section>
+
+  <!-- Services Details -->
+  <main class="help-details">
+    <div class="help-block">
+      <h2>🔧 Programming & Setup Support</h2>
+      <p>Stuck with code errors or need help setting up a website? I provide one-on-one assistance in debugging, configuring servers, or customizing your project until it works flawlessly.</p>
+    </div>
+    <div class="help-block">
+      <h2>🛡️ Cybersecurity & Scam Recovery</h2>
+      <p>Been scammed or face a security breach? I offer targeted help analyzing attacks, removing threats, securing accounts, and walking you through safe recovery processes.</p>
+    </div>
+    <div class="help-block">
+      <h2>💾 Backup & Data Restoration</h2>
+      <p>Lost files or need a backup system implemented? I assist with setting up automated backups (cloud or local), recovering data, and protecting your digital assets.</p>
+    </div>
+  </main>
+
+  <!-- Contact CTA -->
+  <section class="help-cta">
+    <h2>Need Help Now?</h2>
+    <p>Click the button below to get in touch and book a session or request emergency support.</p>
+    <button id="contactNowBtn" class="btn">Contact Me</button>
+  </section>
+
+    <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p class="footer-logo">Madjid Vision</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2025 Madjid Vision. All rights reserved.</p>
+    </div>
+    <div class="social-icons">
+  <a href="https://facebook.com/abdelmadjidsoumaine123@gmail.com" target="_blank" aria-label="Facebook"><img src="icons/facebook.svg" alt="Facebook" /></a>
+  <a href="https://instagram.com/bendelmo fils" target="_blank" aria-label="Instagram"><img src="icons/instagram.svg" alt="Instagram" /></a>
+  <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn"><img src="icons/linkedin.svg" alt="LinkedIn" /></a>
+  <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><img src="icons/github.svg" alt="GitHub" /></a>
+  <a href="https://youtube.com/@1itsntme@gmail.com" target="_blank" aria-label="YouTube"><img src="icons/youtube.svg" alt="YouTube" /></a>
+  <a href="https://tiktok.com/@abdelmadjid_ni" target="_blank" aria-label="TikTok"><img src="icons/tiktok.svg" alt="TikTok" /></a>
+  <a href="https://www.spacex.com" target="_blank" aria-label="SpaceX"><img src="icons/spacex.svg" alt="SpaceX" /></a>
+</div>
+  </footer>
+<style>
+  /* Hero Banner */
+.hero-banner {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+.hero-banner img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: cover;
+  opacity: 0.85;
+}
+.hero-banner h1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--accent-color);
+  font-size: 2.5rem;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.4);
+}
+
+/* Help Details */
+.help-details {
+  max-width: 1000px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+.help-block {
+  background-color: var(--card-bg);
+  padding: 1.8rem;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+  transition: transform 0.3s;
+}
+.help-block:hover {
+  transform: translateY(-5px);
+}
+.help-block h2 {
+  margin-top: 0;
+  color: var(--accent-color);
+}
+
+/* CTA Section */
+.help-cta {
+  text-align: center;
+  background-color: var(--card-bg);
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 600px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px var(--shadow-color);
+}
+.help-cta h2 {
+  color: var(--accent-color);
+}
+.help-cta p {
+  margin: 1rem 0;
+}
+#contactNowBtn.btn {
+  width: auto;
+  padding: 0.8rem 1.8rem;
+  background: var(--accent-color);
+  border-radius: 6px;
+}
+
+/* Dark Mode Support */
+body.dark .hero-banner h1,
+body.dark .help-block,
+body.dark .help-cta {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+}
+
+</style>
+<script>
+  // Dark mode toggle
+document.getElementById('dark-toggle').addEventListener('click', () => {
+  document.body.classList.toggle('dark');
+});
+
+// Language menu (if not already in scripts.js)
+document.getElementById("lang-toggle").addEventListener("click", () => {
+  document.getElementById("lang-menu").classList.toggle("show");
+});
+
+// Contact Now button: navigates to contact page
+document.getElementById("contactNowBtn").addEventListener("click", () => {
+  window.location.href = 'contact.html';
+});
+
+</script>
+  <script src="scripts.js"></script>
+</body>
+</html>

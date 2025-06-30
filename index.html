@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Madjid Vision</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+
+  <header class="navbar sticky">
+    <div class="logo">Madjid Vision</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="lang-switcher">
+          <button id="lang-toggle">🌍 Language ▾</button>
+          <ul id="lang-menu" class="lang-menu hidden">
+            <li><a href="index.html">English</a></li>
+            <li><a href="index-fr.html">Français</a></li>
+            <li><a href="index-ar.html">العربية</a></li>
+          </ul>
+        </li>
+        <li><button id="dark-toggle">🌙</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero-banner">
+    <img src="unsplash.jpg" alt="Tech Theme" />
+    <h1 class="animated-welcome">Welcome to Madjid Vision</h1>
+  </section>
+
+  <!-- Auth Buttons -->
+  <div class="auth-buttons">
+    <button id="loginBtn">Login</button>
+    <button id="registerBtn">Register</button>
+  </div>
+
+  <!-- About Section -->
+  <section class="about-section">
+    <h2>About Me</h2>
+    <img src="h0Vxgz5tyXAunsplash.jpg" alt="Madjid's Profile Photo" class="profile-pic" />
+    <p>Hi, I'm Madjid — founder of Madjid Vision. I specialize in online tech education, web development, and helping people unlock their potential with technology.</p>
+  </section>
+
+  <!-- Course Modal -->
+  <div id="courseModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" id="closeCourseModal">&times;</span>
+      <h3 id="modalTitle">Course Title</h3>
+      <p id="modalDesc">Course description goes here...</p>
+    </div>
+  </div>
+
+<!-- Books Link Block in Services Style -->
+<a href="books.html" class="service-link">
+  <div class="service-block">
+    <img src="TypeScript.jpg" alt="Books Icon" />
+    <h3>Books & Guides</h3>
+    <p>Downloadable resources to learn web design, programming, & AI on your own time.</p>
+  </div>
+</a>
+
+  <!-- Testimonials -->
+  <section class="testimonials-section">
+    <h2>What People Say</h2>
+    <div class="testimonial-container">
+      <blockquote id="testimonialText">“Madjid Vision helped me build my first portfolio — now I freelance full-time!”</blockquote>
+      <p id="testimonialAuthor">– Samira, Web Developer</p>
+    </div>
+  </section>
+
+<!-- Services -->
+<section class="services-section">
+  <h2>What I Offer</h2>
+  <div class="services-grid">
+    <a href="courses.html" class="service-link">
+      <div class="service-block">
+        <img src="graphic book.jpg" alt="Online Learning Icon" />
+        <h3>Online Learning</h3>
+        <p>Courses and tutorials to master web and AI tools at your pace.</p>
+      </div>
+    </a>
+   <a href="personal.html" class="service-link">
+  <div class="service-block">
+    <img src="pexels-athena-2582937.jpg" alt="Branding Icon" />
+    <h3>Personal Branding</h3>
+    <p>Create a strong online identity with custom portfolios, content strategies, and resume templates.</p>
+  </div>
+</a>
+   <!-- Service Block with Clickable Link -->
+<a href="technical-help.html" class="service-link">
+  <div class="service-block">
+    <img src="technology.jpg" alt="Tech Support Icon" />
+    <h3>Technical Help</h3>
+    <p>Need support with coding, debugging, or technical tools? I’m here to help—consultations, troubleshooting, and live sessions available.</p>
+  </div>
+</a>
+
+</section>
+
+  <!-- Features -->
+  <section class="features-section">
+    <h2>New & Powerful Features</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <img src="ioneYunsplash.jpg" alt="AI Assistant" />
+        <h3>AI Assistant</h3>
+        <p>Get instant answers and guidance from a built-in chatbot powered by smart AI models.</p>
+      </div>
+      <div class="feature-card">
+        <img src="carlos-muza-hpjSkU2UYSU-unsplash.jpg" alt="Virtual Labs" />
+        <h3>Virtual Labs</h3>
+        <p>Test your code and skills in live environments with hands-on labs, right from your browser.</p>
+      </div>
+      <div class="feature-card">
+        <img src="samsung-memory.jpg" alt="Dashboard" />
+        <h3>Personal Dashboard</h3>
+        <p>Track your learning, downloads, and updates in one clean and personalized dashboard view.</p>
+      </div>
+    </div>
+  </section>
+  <!-- Login Modal -->
+  <div id="loginModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" id="closeLogin">&times;</span>
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Register Modal -->
+  <div id="registerModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close" id="closeRegister">&times;</span>
+      <h2>Register</h2>
+      <form id="registerForm">
+        <input type="text" placeholder="Name" required />
+        <input type="email" placeholder="Email" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <section class="dashboard-section">
+    <h2>Your Dashboard</h2>
+    <div class="dashboard-grid">
+      <div class="dashboard-card">
+        <h3>Learning Progress</h3>
+        <p>5 of 10 courses completed</p>
+        <div class="progress-bar">
+          <div class="progress-fill" style="width: 50%;"></div>
+        </div>
+      </div>
+      <div class="dashboard-card">
+        <h3>Downloads</h3>
+        <p>You’ve downloaded 8 resources this month.</p>
+      </div>
+      <div class="dashboard-card">
+        <h3>Profile Info</h3>
+        <p>Name: Madjid<br>Email: example@email.com</p>
+      </div>
+    </div>
+  </section>
+<!-- Achievements Section -->
+<section class="achievements-section">
+  <h2>🏆 Achievements</h2>
+  <div class="achievement-grid">
+    <div class="achievement-card">
+      <img src="icons/certificate.svg" alt="Certificate" />
+      <h4>HTML Beginner</h4>
+      <p>Completed the HTML Basics course</p>
+      <a href="certificates/html-basics.pdf" download class="download-btn">Download Certificate</a>
+    </div>
+    <div class="achievement-card">
+      <img src="icons/badge.svg" alt="Badge" />
+      <h4>Consistency Badge</h4>
+      <p>Logged in 7 days in a row!</p>
+    </div>
+    <div class="achievement-card">
+      <img src="icons/progress.svg" alt="Progress" />
+      <h4>Progress</h4>
+      <p>You’ve completed 50% of your learning path</p>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 50%;"></div>
+      </div>
+    </div>
+  </div>
+</section>
+  <!-- Newsletter -->
+  <section class="newsletter-section">
+    <h2>Stay Updated</h2>
+    <p>Subscribe to our newsletter to receive tech tips, tutorials, and updates.</p>
+    <form id="newsletterForm">
+      <input type="email" id="newsletterEmail" placeholder="Enter your email" required />
+      <button type="submit">Subscribe</button>
+      <p id="newsletterMsg"></p>
+    </form>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="contact-section">
+    <h2>Contact Me</h2>
+    <form id="contactForm" action="contact.php" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <div class="g-recaptcha" data-sitekey="6LdjgHArAAAAAK5ybxrX__Y976qSjVfyzBOWxV0P"></div>
+      <button type="submit">Send Message</button>
+      <p id="formMsg"></p>
+    </form>
+  </section>
+<!-- Course Detail Modal -->
+<div id="courseModal" class="modal hidden">
+  <div class="modal-content">
+    <span class="close" onclick="closeCourseModal()">&times;</span>
+    <h3 id="detailTitle"></h3>
+    <p id="detailDesc"></p>
+    <p id="detailPrice"></p>
+    <button onclick="alert('Checkout feature coming soon!')">Enroll Now</button>
+  </div>
+</div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p class="footer-logo">Madjid Vision</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2025 Madjid Vision. All rights reserved.</p>
+    </div>
+    <div class="social-icons">
+  <a href="https://facebook.com/abdelmadjidsoumaine123@gmail.com" target="_blank" aria-label="Facebook"><img src="icons/facebook.svg" alt="Facebook" /></a>
+  <a href="https://instagram.com/bendelmo fils" target="_blank" aria-label="Instagram"><img src="icons/instagram.svg" alt="Instagram" /></a>
+  <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn"><img src="icons/linkedin.svg" alt="LinkedIn" /></a>
+  <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><img src="icons/github.svg" alt="GitHub" /></a>
+  <a href="https://youtube.com/@1itsntme@gmail.com" target="_blank" aria-label="YouTube"><img src="icons/youtube.svg" alt="YouTube" /></a>
+  <a href="https://tiktok.com/@abdelmadjid_ni" target="_blank" aria-label="TikTok"><img src="icons/tiktok.svg" alt="TikTok" /></a>
+  <a href="https://www.spacex.com" target="_blank" aria-label="SpaceX"><img src="icons/spacex.svg" alt="SpaceX" /></a>
+</div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

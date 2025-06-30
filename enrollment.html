@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enroll – Madjid Vision</title>
+  <link rel="stylesheet" href="styles.css" />
+<style>
+  :root {
+    --bg-color: #ffffff;
+    --text-color: #222222;
+    --accent-color: #007bff;
+    --card-bg: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+  }
+
+  body.dark {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1f1f1f;
+    --shadow-color: rgba(255, 255, 255, 0.05);
+  }
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .container {
+    max-width: 650px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px var(--shadow-color);
+  }
+
+  .container h1 {
+    text-align: center;
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.2rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    transition: border-color 0.2s;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    outline: none;
+    border-color: var(--accent-color);
+  }
+
+  .form-group input[type="file"] {
+    padding: 0.5rem;
+    background-color: var(--bg-color);
+  }
+
+  .agreement {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  .btn-submit {
+    width: 100%;
+    padding: 0.9rem;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.05rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-submit:hover {
+    background-color: hsl(210, 100%, 40%);
+  }
+
+  /* Dark mode overrides */
+  body.dark .form-group input,
+  body.dark .form-group select,
+  body.dark .form-group textarea {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    border: 1px solid #444;
+  }
+
+  body.dark .form-group input::placeholder,
+  body.dark .form-group textarea::placeholder {
+    color: #aaa;
+  }
+
+  body.dark .container {
+    background-color: var(--card-bg);
+  }
+</style>
+</head>
+<body class="body">
+    <!-- Navbar -->
+<header class="navbar sticky">
+  <div class="logo">Madjid Vision</div>
+  <nav>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><button id="lang-toggle">🌍</button></li>
+      <li><button id="dark-toggle">🌙</button></li>
+    </ul>
+  </nav>
+</header>
+  <div class="container">
+    <h1>Student Enrollment Form</h1>
+    <form id="enrollForm" action="enrollment-success.html" method="GET">
+      
+      <div class="form-group"><label>First Name*</label><input type="text" name="first_name" required /></div>
+      <div class="form-group"><label>Last Name*</label><input type="text" name="last_name" required /></div>
+      <div class="form-group"><label>Phone*</label><input type="tel" name="phone" required /></div>
+      <div class="form-group"><label>Email*</label><input type="email" name="email" required /></div>
+      <div class="form-group"><label>Address*</label><textarea name="address" rows="2" required></textarea></div>
+      <div class="form-group"><label>Country*</label><input type="text" name="country" required /></div>
+      <div class="form-group"><label>Date of Birth*</label><input type="date" name="dob" required /></div>
+      <div class="form-group">
+        <label>Highest Education*</label>
+        <input type="text" name="education" placeholder="e.g. B.Sc. in Computer Science, 2023" required />
+      </div>
+      <div class="form-group"><label>Program Applying For*</label><input type="text" name="program" required /></div>
+      
+      <div class="form-group">
+  <p><strong>1. Have you ever been convicted of a felony?</strong></p>
+  <label><input type="radio" name="felony" value="Yes" required /> Yes</label>
+  <label><input type="radio" name="felony" value="No" /> No</label>
+</div>
+
+<div class="form-group">
+  <p><strong>2. Have you ever been convicted of a misdemeanor?</strong></p>
+  <label><input type="radio" name="misdemeanor" value="Yes" required /> Yes</label>
+  <label><input type="radio" name="misdemeanor" value="No" /> No</label>
+</div>
+
+<div class="form-group">
+  <p><strong>3. Are you currently under investigation for any criminal activity?</strong></p>
+  <label><input type="radio" name="investigation" value="Yes" required /> Yes</label>
+  <label><input type="radio" name="investigation" value="No" /> No</label>
+</div>
+
+<div class="form-group">
+  <p><strong>4. Do you have a clean criminal record (no convictions or charges)?</strong></p>
+  <label><input type="radio" name="clean_record" value="Yes" required /> Yes</label>
+  <label><input type="radio" name="clean_record" value="No" /> No</label>
+</div>
+
+
+      <div class="file-group form-group">
+        <label>Upload passport photo*</label><input type="file" name="photo" accept="image/*" required />
+      </div>
+      <div class="file-group form-group">
+        <label>Upload Diploma*</label><input type="file" name="diploma" accept=".pdf,.jpg,.png" required />
+      </div>
+      <div class="file-group form-group">
+        <label>Upload ID*</label><input type="file" name="id_card" accept=".pdf,.jpg,.png" required />
+      </div>
+      <div class="file-group form-group">
+        <label>Upload Birth Certificate*</label><input type="file" name="birth_cert" accept=".pdf,.jpg,.png" required />
+      </div>
+
+      <div class="form-group"><label>Signature (type full name)*</label><input type="text" name="signature" required /></div>
+      <div class="form-group"><label>Signature Date*</label><input type="date" name="signdate" required /></div>
+      <div class="agreement">
+        <input type="checkbox" name="agreement" required />
+        <span>I agree to abide by Madjid Vision <strong>Terms & Conditions</strong>.</span>
+      </div>
+
+      <button type="submit" class="btn-submit">Register & Enroll</button>
+    </form>
+  </div>
+
+<script>
+  // Form validation for file uploads
+  document.getElementById('enrollForm').addEventListener('submit', function (e) {
+    const requiredFiles = ['photo', 'diploma', 'id_card', 'birth_cert'];
+    const allFilled = requiredFiles.every(id => this[id].value);
+    if (!allFilled) {
+      e.preventDefault();
+      alert('Please upload all required documents.');
+    }
+  });
+
+  // Apply dark mode if saved
+  document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('darkMode') === 'on') {
+      document.body.classList.add('dark');
+    }
+
+    const darkToggle = document.getElementById('dark-toggle');
+    if (darkToggle) {
+      darkToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        const isDark = document.body.classList.contains('dark');
+        localStorage.setItem('darkMode', isDark ? 'on' : 'off');
+      });
+    }
+  });
+</script>
+
+</body>
+</html>

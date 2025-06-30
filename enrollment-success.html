@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Registration Successful – Madjid Vision</title>
+  <style>
+    :root {
+      --bg-color: #fff;
+      --text-color: #222;
+      --accent-color: #007bff;
+      --card-bg: #f8f9fa;
+    }
+
+    body.dark {
+      --bg-color: #121212;
+      --text-color: #eee;
+      --card-bg: #1e1e1e;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg-color);
+      color: var(--text-color);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    header {
+      background: var(--card-bg);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+      padding: 0;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-color);
+    }
+
+    .success-box {
+      max-width: 600px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background: var(--card-bg);
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .success-box h1 {
+      color: var(--accent-color);
+    }
+
+    .success-box p {
+      font-size: 1.1rem;
+      margin-top: 1rem;
+    }
+
+    .success-box a {
+      display: inline-block;
+      margin-top: 2rem;
+      background: var(--accent-color);
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .success-box a:hover {
+      filter: brightness(0.9);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">Madjid Vision</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="courses.html">Courses</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </header>
+
+  <div class="success-box">
+    <h1>🎉 Registration Successful!</h1>
+    <p>Thank you for enrolling. We've received your submission and will contact you shortly.</p>
+    <a href="index.html">Back to Home</a>
+  </div>
+
+  <script>
+    // Dark mode support
+    document.addEventListener('DOMContentLoaded', () => {
+      const darkMode = localStorage.getItem('darkMode');
+      if (darkMode === 'on') {
+        document.body.classList.add('dark');
+      }
+    });
+  </script>
+</body>
+</html>

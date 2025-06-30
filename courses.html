@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses – Madjid Vision</title>
+  <style>
+    /* Theme Variables */
+    :root {
+      --bg: #fff;
+      --text: #222;
+      --accent: #007bff;
+      --nav-bg: #f8f9fa;
+      --card-bg: #fff;
+      --shadow: rgba(0,0,0,0.1);
+    }
+    body.dark {
+      --bg: #121212;
+      --text: #eee;
+      --nav-bg: #1e1e1e;
+      --card-bg: #1f1f1f;
+      --shadow: rgba(255,255,255,0.05);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+    }
+    a { color: var(--text); text-decoration: none; }
+    a:hover { color: var(--accent); }
+
+    /* Navbar */
+    .navbar {
+      background: var(--nav-bg);
+      box-shadow: 0 2px 5px var(--shadow);
+      padding: 1rem;
+      position: sticky; top:0;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .nav-links { list-style:none; display:flex; gap:1rem; margin:0; }
+    .nav-links li button,
+    .nav-links li a {
+      background:none; border:none; cursor:pointer;
+      color: var(--text); font-size:1rem;
+    }
+    .nav-links .active { font-weight:bold; }
+
+    /* Hero Banner */
+    .course-hero {
+      position: relative;
+      height: 300px;
+      overflow: hidden;
+    }
+    .course-hero img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.75);
+      transition: filter 0.3s;
+    }
+    body.dark .course-hero img { filter: brightness(0.5); }
+    .hero-text {
+      position: absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      text-align:center; color:white; padding:1rem;
+    }
+    .hero-text h1 { font-size:2.5rem; margin:0.5rem 0; }
+    .hero-text p { font-size:1.1rem; }
+
+    /* Intro */
+    .portfolio-intro {
+      text-align:center; padding:2rem 1rem;
+    }
+    .portfolio-intro h2 { color:var(--accent); margin-bottom:0.5rem; }
+
+    /* Notifications */
+    .notifications-panel {
+      max-width:600px; margin:1rem auto; padding:1rem;
+      background:var(--card-bg); box-shadow:0 2px 10px var(--shadow);
+      border-radius:8px;
+    }
+    .notifications-panel h3 { margin-top:0; }
+    .notif-list { list-style:none; padding:0; margin:0; }
+    .notif-list li {
+      display:flex; justify-content:space-between;
+      align-items:center; padding:0.5rem 0;
+      border-bottom:1px solid var(--shadow);
+    }
+    .notif-list li:last-child { border:none; }
+    .notif-list li span { display:flex; align-items:center; gap:0.7rem; }
+    .dismiss-btn, .btn {
+      background: var(--accent); color:white;
+      border:none; padding:0.5rem 1rem;
+      cursor:pointer; border-radius:4px;
+      font-size:0.9rem;
+      transition:filter 0.2s;
+    }
+    .dismiss-btn { background:transparent; color:var(--accent); font-size:1.2rem; padding:0; }
+    .dismiss-btn:hover { filter:brightness(1.2); color:red; }
+    .btn:hover { filter:brightness(0.9); }
+
+   /* Course Section Layout */
+.courses-section {
+  padding: 3rem 1rem;
+  background-color: var(--bg-color);
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Course Card Design */
+.course-card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 18px var(--shadow-color);
+  border-color: var(--accent-color);
+}
+
+/* Course Card Typography */
+.course-card h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  color: var(--accent-color);
+}
+
+.course-card p {
+  margin: 0.5rem 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--text-color);
+}
+
+/* Course Button */
+.course-card button {
+  margin-top: 1.5rem;
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.course-card button:hover {
+  background-color: hsl(210, 100%, 45%);
+}
+
+/* Dark Mode */
+body.dark .course-card {
+  background-color: var(--card-bg);
+  color: var(--text-color);
+  box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+body.dark .course-card p {
+  color: var(--text-color);
+}
+
+    /* Modal */
+    .modal {
+      position:fixed; top:0; left:0; width:100%; height:100%;
+      background:rgba(0,0,0,0.7);
+      display:flex; align-items:center; justify-content:center;
+      padding:1rem;
+      visibility:hidden; opacity:0;
+      transition:opacity 0.3s;
+    }
+    .modal:not(.hidden) { visibility: visible; opacity:1; }
+    .modal-content {
+      background:var(--card-bg); padding:2rem; border-radius:8px;
+      max-width:500px; width:100%; position:relative;
+      box-shadow:0 4px 15px var(--shadow);
+      color: var(--text);
+    }
+    .modal-content .close {
+      position:absolute; top:10px; right:15px;
+      font-size:1.5rem; cursor:pointer;
+      color:var(--accent);
+      background:none; border:none;
+    }
+
+    /* Footer */
+    .site-footer {
+      background:var(--nav-bg);
+      padding:2rem 1rem;
+      text-align:center;
+      border-top:1px solid var(--shadow);
+      margin-top:2rem;
+    }
+    .site-footer .footer-links {
+      list-style:none;
+      padding:0; margin:0.5rem 0;
+      display:flex; justify-content:center; gap:1rem;
+    }
+    .site-footer a { color:var(--text); }
+    .site-footer a:hover { color:var(--accent); }
+
+    body.dark .site-footer { background:var(--nav-bg); color:var(--text); }
+    .social-icons a img {
+  width: 28px;
+  height: 28px;
+  padding: 6px;
+  background: var(--card-bg);
+  border-radius: 50%;
+  box-shadow: 0 2px 4px var(--shadow);
+}
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar sticky">
+    <div class="logo">Madjid Vision</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="courses.html" class="active">Courses</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><button id="lang-toggle">🌍</button></li>
+        <li><button id="dark-toggle">🌙</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="course-hero">
+    <img src="courses-hero.jpg" alt="Unlock new skills banner" />
+    <div class="hero-text">
+      <h1>Unlock New Skills</h1>
+      <p>Explore courses from Office basics to graphic design and data analysis.</p>
+    </div>
+  </section>
+
+  <!-- Intro -->
+  <section class="portfolio-intro">
+    <h2>Explore Our Courses</h2>
+    <p>Find the perfect course to level up—free or affordable</p>
+  </section>
+
+  <!-- Notifications -->
+  <section class="notifications-panel">
+    <h3>Notifications</h3>
+    <button id="clearAll" class="btn">Mark all as read</button>
+    <ul class="notif-list">
+      <li><span>🎉 You earned a <strong>HTML Beginner</strong> badge</span><button class="dismiss-btn">✕</button></li>
+      <li><span>📢 New course alert: <strong>Advanced Excel</strong></span><button class="dismiss-btn">✕</button></li>
+      <li><span>⚠️ Complete your profile to unlock more content</span><button class="dismiss-btn">✕</button></li>
+    </ul>
+  </section>
+
+  <!-- Courses -->
+<section class="courses-section">
+  <div class="course-grid">
+    <div class="course-card">
+      <h3>Microsoft Word – Beginner</h3>
+      <p>Document creation & formatting.</p>
+      <p><strong>Free</strong></p>
+      <button onclick="window.location.href='enrollment.html'">Enroll</button>
+    </div>
+    <div class="course-card">
+      <h3>Microsoft Excel – Basics</h3>
+      <p>Formulas, charts & more.</p>
+      <p><strong>Free</strong></p>
+      <button onclick="window.location.href='enrollment.html'">Enroll</button>
+    </div>
+    <div class="course-card">
+      <h3>PowerPoint Essentials</h3>
+      <p>Build engaging presentations.</p>
+      <p><strong>Free</strong></p>
+      <button onclick="window.location.href='enrollment.html'">Enroll</button>
+    </div>
+    <div class="course-card">
+      <h3>Graphic Design – Essentials</h3>
+      <p>Canva fundamentals. Stunning visuals.</p>
+      <p><strong>$15</strong></p>
+      <button onclick="window.location.href='enrollment.html'">Enroll</button>
+    </div>
+    <div class="course-card">
+      <h3>Excel for Data Analysis</h3>
+      <p>Pivot tables, lookups & charts.</p>
+      <p><strong>$20</strong></p>
+      <button onclick="window.location.href='enrollment.html'">Enroll</button>
+    </div>
+  </div>
+</section>
+
+
+  <!-- Modal -->
+  <div id="courseModal" class="modal hidden">
+    <div class="modal-content">
+      <button class="close" onclick="closeCourseModal()">×</button>
+      <h3 id="detailTitle"></h3>
+      <p id="detailDesc"></p>
+      <p id="detailPrice"></p>
+      <button onclick="alert('Checkout coming soon')">Enroll Now</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <p class="footer-logo">Madjid Vision</p>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <p class="footer-copy">&copy; 2025 Madjid Vision. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#"><img src="icons/facebook.svg" alt="Facebook" /></a>
+      <a href="#"><img src="icons/instagram.svg" alt="Instagram" /></a>
+      <a href="#"><img src="icons/linkedin.svg" alt="LinkedIn" /></a>
+      <a href="#"><img src="icons/github.svg" alt="GitHub" /></a>
+      <a href="#"><img src="icons/youtube.svg" alt="YouTube" /></a>
+      <a href="#"><img src="icons/tiktok.svg" alt="TikTok" /></a>
+      <a href="#"><img src="icons/spacex.svg" alt="SpaceX" /></a>
+    </div>
+  </footer>
+
+  <script>
+    // Notification logic
+    document.querySelectorAll('.dismiss-btn').forEach(b => 
+      b.addEventListener('click', () => b.closest('li').remove())
+    );
+    document.getElementById('clearAll').addEventListener('click', () => {
+      document.querySelectorAll('.notif-list li').forEach(li => li.remove());
+    });
+
+    // Modal logic
+    const modal = document.getElementById('courseModal');
+    const cards = [
+      ["Microsoft Word – Beginner", "Document creation & formatting.","Free"],
+      ["Microsoft Excel – Basics", "Formulas, charts & more.","Free"],
+      ["PowerPoint Essentials", "Build engaging presentations.","Free"],
+      ["Graphic Design – Essentials", "Canva fundamentals.","$15"],
+      ["Excel for Data Analysis", "Pivot tables & charts.","$20"]
+    ];
+    document.querySelectorAll('.course-card button').forEach((btn,i)=>
+      btn.addEventListener('click', ()=> {
+        modal.classList.remove('hidden');
+        document.getElementById('detailTitle').textContent = cards[i][0];
+        document.getElementById('detailDesc').textContent = cards[i][1];
+        document.getElementById('detailPrice').textContent = cards[i][2];
+      })
+    );
+    function closeCourseModal() {
+      modal.classList.add('hidden');
+    }
+    window.addEventListener('click', e => { if (e.target === modal) closeCourseModal(); });
+
+    // Dark mode toggle
+    document.addEventListener('DOMContentLoaded', ()=>{
+      if (localStorage.getItem('darkMode') === 'on')
+        document.body.classList.add('dark');
+    });
+    document.getElementById('dark-toggle').addEventListener('click', ()=>{
+      const isDark = document.body.classList.toggle('dark');
+      localStorage.setItem('darkMode', isDark ? 'on' : 'off');
+    });
+  </script>
+</body>
+</html>
