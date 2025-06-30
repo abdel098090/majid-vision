@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Personal Branding – Madjid Vision</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar sticky">
+    <div class="logo">Madjid Vision</div>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="books.html">Books</a></li>
+        <li><a href="personal.html">Branding</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li class="lang-switcher">
+          <button id="lang-toggle">🌍 Language ▾</button>
+          <ul id="lang-menu" class="lang-menu hidden">
+            <li><a href="index.html">English</a></li>
+            <li><a href="index-fr.html">Français</a></li>
+            <li><a href="index-ar.html">العربية</a></li>
+          </ul>
+        </li>  
+        <li><button id="dark-toggle">🌙</button></li>
+      </ul>
+    </nav>
+  </header>
+<!-- Hero Banner for Personal Branding -->
+<section class="branding-hero">
+  <img src="branding-hero.jpg" alt="Personal Branding Banner" />
+  <div class="hero-text">
+    <h1>Personal Branding</h1>
+    <p>Build your digital identity with a strong portfolio, professional image, and online presence.</p>
+  </div>
+</section>
+
+  <!-- Page Header -->
+  <section class="portfolio-intro">
+    <h2>Personal Branding</h2>
+    <p>
+      Stand out in your tech journey with a strong personal brand. Let me help you design a memorable portfolio,
+      craft a consistent online presence, and communicate your story professionally.
+    </p>
+  </section>
+
+  <section class="personal-content">
+    <div class="branding-grid">
+      <div class="branding-step">
+        <h3>01. Visual Identity</h3>
+        <p>Create a cohesive design system—colors, fonts, logo—that reflects your vision and style.</p>
+      </div>
+      <div class="branding-step">
+        <h3>02. Portfolio Design</h3>
+        <p>Build a clean, responsive portfolio showcasing your projects, skills, and achievements.</p>
+      </div>
+      <div class="branding-step">
+        <h3>03. Content Strategy</h3>
+        <p>Learn how to use social and blog content to position yourself as a credible and confident creator.</p>
+      </div>
+      <div class="branding-step">
+        <h3>04. Templates & Resources</h3>
+        <p>Receive resume, cover letter, and portfolio templates to help you stand out quickly.</p>
+      </div>
+    </div>
+  </section>
+
+   <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <p class="footer-logo">Madjid Vision</p>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="#books">Books</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <p class="footer-copy">&copy; 2025 Madjid Vision. All rights reserved.</p>
+    </div>
+    <div class="social-icons">
+  <a href="https://facebook.com/abdelmadjidsoumaine123@gmail.com" target="_blank" aria-label="Facebook"><img src="icons/facebook.svg" alt="Facebook" /></a>
+  <a href="https://instagram.com/bendelmo fils" target="_blank" aria-label="Instagram"><img src="icons/instagram.svg" alt="Instagram" /></a>
+  <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn"><img src="icons/linkedin.svg" alt="LinkedIn" /></a>
+  <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><img src="icons/github.svg" alt="GitHub" /></a>
+  <a href="https://youtube.com/@1itsntme@gmail.com" target="_blank" aria-label="YouTube"><img src="icons/youtube.svg" alt="YouTube" /></a>
+  <a href="https://tiktok.com/@abdelmadjid_ni" target="_blank" aria-label="TikTok"><img src="icons/tiktok.svg" alt="TikTok" /></a>
+  <a href="https://www.spacex.com" target="_blank" aria-label="SpaceX"><img src="icons/spacex.svg" alt="SpaceX" /></a>
+</div>
+  </footer>
+
+  <script src="scripts.js"></script>
+  <style>
+    /* Personal Branding Page Styles */
+.personal-content {
+  padding: 3rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.branding-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.branding-step {
+  background-color: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px var(--shadow-color);
+  transition: transform 0.3s ease;
+}
+
+.branding-step:hover {
+  transform: translateY(-5px);
+}
+
+.branding-step h3 {
+  color: var(--accent-color);
+  margin-bottom: 0.5rem;
+}
+
+.branding-step p {
+  font-size: 0.95rem;
+  color: var(--text-color);
+  line-height: 1.5;
+}
+
+/* Dark mode for branding steps */
+body.dark .branding-step {
+  background-color: #1e1e1e;
+  color: #ddd;
+}
+/* Hero Banner for Personal Branding */
+.branding-hero {
+  position: relative;
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.branding-hero img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  filter: brightness(0.7);
+}
+
+.branding-hero .hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
+}
+
+.branding-hero .hero-text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.branding-hero .hero-text p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: auto;
+}
+
+/* Dark mode support */
+body.dark .branding-hero img {
+  filter: brightness(0.5);
+}
+
+  </style>
+</body>
+</html>
