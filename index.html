@@ -257,7 +257,46 @@
   <a href="https://www.spacex.com" target="_blank" aria-label="SpaceX"><img src="icons/spacex.svg" alt="SpaceX" /></a>
 </div>
   </footer>
+<style>
+  /* Universal fix for horizontal scroll issues */
+body {
+  overflow-x: hidden;
+}
 
+/* Make all images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Container and section fix for mobile */
+.container, .section, .course-card, .hero-text {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 1rem;
+}
+
+/* Optional: Limit max width on large screens */
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+
+/* Responsive text centering for hero banner */
+.hero-text {
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Responsive button */
+button {
+  max-width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  white-space: normal;
+}
+</style>
   <script src="scripts.js"></script>
 </body>
 </html>
