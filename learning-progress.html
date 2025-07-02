@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learning Progress – Madjid Vision</title>
+  <style>
+    :root {
+      --bg: #f9f9f9;
+      --card: #fff;
+      --text: #333;
+      --accent: #007bff;
+      --shadow: rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .dashboard-container {
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background: var(--card);
+      box-shadow: 0 4px 12px var(--shadow);
+      border-radius: 8px;
+    }
+
+    .dashboard-card h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+
+    .progress-bar {
+      width: 100%;
+      background: #e0e0e0;
+      border-radius: 6px;
+      overflow: hidden;
+      margin-top: 0.5rem;
+      height: 20px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: var(--accent);
+      width: 0;
+      transition: width 0.5s ease-in-out;
+    }
+
+    .info {
+      font-size: 1.1rem;
+      margin: 1rem 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="dashboard-card">
+      <h3>Learning Progress</h3>
+      <p class="info" id="progressText">5 of 10 courses completed</p>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Simulate course data
+    const completed = 5;
+    const total = 10;
+    const percent = Math.round((completed / total) * 100);
+
+    // Update UI
+    document.getElementById('progressText').textContent = `${completed} of ${total} courses completed`;
+    document.getElementById('progressFill').style.width = percent + '%';
+  </script>
+</body>
+</html>
