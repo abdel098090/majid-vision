@@ -14,9 +14,9 @@ const NAV_TEMPLATE = `
         <li class="lang-switcher">
           <button id="lang-toggle" type="button" aria-haspopup="true" aria-expanded="false">🌍 Languages ▾</button>
           <ul id="lang-menu" class="lang-menu hidden">
-            <li><a href="index.html" lang="en">English</a></li>
-            <li><a href="index-fr.html" lang="fr">Français</a></li>
-            <li><a href="index-ar.html" lang="ar" dir="rtl">العربية</a></li>
+            <li><a href="./index.html" lang="en">English</a></li>
+            <li><a href="./index-fr.html" lang="fr">Français</a></li>
+            <li><a href="./index-ar.html" lang="ar" dir="rtl">العربية</a></li>
           </ul>
         </li>
         <li><button id="dark-toggle" type="button" aria-label="Toggle dark mode">🌙</button></li>

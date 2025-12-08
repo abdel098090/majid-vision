@@ -983,6 +983,10 @@ body {
   color: white;
 }
 
+.lang-switcher:hover .lang-menu.hidden {
+  display: block;
+}
+
 .lang-menu.show {
   display: block;
 }
