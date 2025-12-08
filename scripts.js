@@ -163,9 +163,9 @@
     if (!textEl || !authorEl) return;
 
     const testimonials = [
-      { text: '“Madjid Vision helped me build my first portfolio — now I freelance full-time!”', author: '– Samira, Web Developer' },
-      { text: '“Clear, practical lessons that made complex tech finally make sense.”', author: '– Ahmed, IT Student' },
-      { text: '“The AI tools tutorial blew my mind. Super clear and actually useful!”', author: '– Youssef, Entrepreneur' }
+      { text: '“Madjid rebuilt our NGO site, translated every call-to-action, and trained our volunteers. Donations tripled in two weeks.”', author: '– Meriem, Program Coordinator' },
+      { text: '“He recovered my hacked creator accounts overnight and left me with a security SOP I still follow.”', author: '– Luis, Content Strategist' },
+      { text: '“The personal branding sprint gave me a live portfolio, resume kit, and messaging I now send to recruiters.”', author: '– Fatima, Cloud Engineer' }
     ];
 
     let index = 0;

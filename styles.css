@@ -61,6 +61,36 @@ body {
   color: var(--accent-color);
 }
 
+.nav-cta {
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 0.4rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.25);
+}
+
+.nav-cta:hover {
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.lang-coming {
+  background: none;
+  border: 1px dashed rgba(0, 0, 0, 0.2);
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  cursor: not-allowed;
+  opacity: 0.6;
+  color: var(--text-color);
+}
+
+.lang-coming:focus-visible {
+  outline: 2px dashed var(--accent-color);
+}
+
 .nav-links li a.active {
   color: var(--accent-color);
   font-weight: 600;
@@ -386,6 +416,38 @@ body {
 #testimonialAuthor {
   font-weight: bold;
   color: var(--accent-color);
+}
+
+.case-study-card {
+  margin-top: 2rem;
+  text-align: left;
+  background-color: var(--bg-color);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 15px 35px var(--shadow-color);
+}
+
+.case-study-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--accent-color);
+  background-color: rgba(0, 123, 255, 0.12);
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+}
+
+.case-study-card ul {
+  margin: 1rem 0 0;
+  padding-left: 1.2rem;
+  color: var(--text-color);
+}
+
+.case-study-card ul li {
+  margin-bottom: 0.4rem;
 }
 .newsletter-section {
   padding: 3rem 2rem;
@@ -1670,6 +1732,208 @@ body {
 
 .btn-submit:hover {
   filter: brightness(0.9);
+}
+
+.global-cta {
+  background: linear-gradient(135deg, var(--accent-color), #00a2ff);
+  color: #fff;
+  padding: 3rem 1.5rem;
+  text-align: center;
+  border-radius: 16px;
+  margin: 3rem auto;
+  max-width: 1100px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.15);
+}
+
+.global-cta h2 {
+  margin: 0 0 1rem;
+  font-size: 2.2rem;
+}
+
+.global-cta p {
+  margin: 0 auto 1.5rem;
+  max-width: 720px;
+  font-size: 1.1rem;
+}
+
+.cta-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cta-buttons .btn {
+  background: #fff;
+  color: var(--accent-color);
+  min-width: 180px;
+  font-weight: 600;
+}
+
+.cta-buttons .btn.secondary {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.cta-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Pricing */
+.pricing-section {
+  padding: 3rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.pricing-card {
+  background-color: var(--card-bg);
+  border-radius: 14px;
+  padding: 2rem;
+  box-shadow: 0 10px 30px var(--shadow-color);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.pricing-card.featured {
+  border: 2px solid var(--accent-color);
+  transform: translateY(-8px);
+}
+
+.pricing-card h3 {
+  margin: 0;
+  color: var(--accent-color);
+}
+
+.price-tag {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-color);
+}
+
+.price-tag span {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: #777;
+}
+
+.pricing-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.pricing-card ul li::before {
+  content: '✓';
+  color: var(--accent-color);
+  margin-right: 0.5rem;
+  font-weight: 700;
+}
+
+.pricing-card .btn {
+  align-self: stretch;
+  justify-content: center;
+  margin-top: auto;
+}
+
+/* Roadmap */
+.roadmap-section {
+  padding: 3rem 1.5rem;
+  background-color: var(--card-bg);
+  border-radius: 16px;
+  max-width: 1000px;
+  margin: 3rem auto;
+  box-shadow: 0 10px 25px var(--shadow-color);
+}
+
+.roadmap-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.roadmap-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.2rem;
+  border-radius: 12px;
+  background-color: var(--bg-color);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.roadmap-item span {
+  font-weight: 600;
+  color: var(--accent-color);
+  min-width: 110px;
+}
+
+.roadmap-item strong {
+  display: block;
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.roadmap-item p {
+  margin: 0;
+  color: var(--text-color);
+  opacity: 0.85;
+}
+
+/* Contact channels */
+.contact-channels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  margin: 2rem 0;
+}
+
+.channel-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px var(--shadow-color);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.channel-card h4 {
+  margin: 0;
+  color: var(--accent-color);
+}
+
+.channel-card p {
+  margin: 0.6rem 0 1rem;
+  color: var(--text-color);
+  opacity: 0.9;
+}
+
+.channel-card a {
+  font-weight: 600;
+  color: var(--accent-color);
+  text-decoration: none;
 }
 
 /* Enrollment Success */

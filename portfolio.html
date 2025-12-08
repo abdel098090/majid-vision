@@ -10,7 +10,7 @@
 <body id="main-body" data-page="portfolio">
   <div data-component="navbar"></div>
 <section class="portfolio-hero">
-  <img src="portfolio-hero.jpg" alt="Portfolio Banner" />
+  <img src="portfolio-hero.jpg" alt="Portfolio Banner" loading="lazy" />
   <div class="hero-text">
     <h1>My Creative Projects</h1>
     <p>Explore some of my best work in design, web development, and digital branding.</p>
@@ -39,26 +39,26 @@
 
     <!-- 3 Modal Projects -->
     <div class="portfolio-card ai" onclick="openModal('TechConnect', 'jasminunsplash13.jpg', 'A networking app connecting students and professionals securely. Built using Flutter, Firebase, and Node.js.')">
-      <img src="madjidphoto.jpg" alt="TechConnect" />
+      <img src="madjidphoto.jpg" alt="TechConnect" loading="lazy" />
       <h3>TechConnect</h3>
       <p>Flutter | Firebase | Node.js</p>
     </div>
 
     <div class="portfolio-card security" onclick="openModal('SecureHub', 'samsungDNXjLfVy1.jpg', 'A real-time cybersecurity dashboard with encryption, alerts, and data tracking. Built with Python, Flask, and SQLite.')">
-      <img src="samsungDNXjLfVy1.jpg" alt="SecureHub" />
+      <img src="samsungDNXjLfVy1.jpg" alt="SecureHub" loading="lazy" />
       <h3>SecureHub</h3>
       <p>Python | Flask | SQLite</p>
     </div>
 
     <div class="portfolio-card web" onclick="openModal('CodeMaster Website', 'marvinunsplash1.jpg', 'My personal portfolio site built using HTML, CSS, and JavaScript — clean, responsive, and dark-mode friendly.')">
-      <img src="marvinunsplash1.jpg" alt="CodeMaster" />
+      <img src="marvinunsplash1.jpg" alt="CodeMaster" loading="lazy" />
       <h3>CodeMaster Website</h3>
       <p>HTML | CSS | JavaScript</p>
     </div>
 
     <!-- 3 Detailed Overlay Projects -->
     <div class="portfolio-card ai">
-      <img src="background.jpg" alt="AI Assistant Project">
+      <img src="background.jpg" alt="AI Assistant Project" loading="lazy">
       <div class="portfolio-overlay">
         <h3>SmartAid – AI Assistant</h3>
         <p>An intelligent AI assistant built to automate daily tasks, schedule reminders, and provide support for cybersecurity learning.</p>
@@ -69,7 +69,7 @@
     </div>
 
     <div class="portfolio-card security">
-      <img src="aJTiW00qqtIunsplash.jpg" alt="Cybersecurity Dashboard">
+      <img src="aJTiW00qqtIunsplash.jpg" alt="Cybersecurity Dashboard" loading="lazy">
       <div class="portfolio-overlay">
         <h3>SecureHub – Cybersecurity Dashboard</h3>
         <p>A responsive cybersecurity platform for real-time threat detection, log analysis, and system monitoring.</p>
@@ -80,7 +80,7 @@
     </div>
 
     <div class="portfolio-card web">
-      <img src="pexels-myleskuo.jpg" alt="Madjid Vision Web">
+      <img src="pexels-myleskuo.jpg" alt="Madjid Vision Web" loading="lazy">
       <div class="portfolio-overlay">
         <h3>Madjid Vision – Tech Learning Platform</h3>
         <p>A multilingual tech education platform with secure login, book downloads, and multi-language support.</p>
@@ -104,6 +104,16 @@
     </div>
   </div>
   <!-- Footer -->
+  <section class="global-cta" id="booking">
+    <div class="cta-badge">Let's ship it</div>
+    <h2>Want a custom walkthrough of these builds?</h2>
+    <p>I'll share Figma files, repo highlights, and a roadmap for how we can remix these ideas for your brand or organization.</p>
+    <div class="cta-buttons">
+      <a class="btn" href="contact.html#contact">Schedule a portfolio tour</a>
+      <a class="btn secondary" href="mailto:hello@madjid.vision">Request source files</a>
+    </div>
+  </section>
+
   <div data-component="footer"></div>
   <script>
     function openModal(title, imgSrc, description) {

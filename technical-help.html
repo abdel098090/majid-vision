@@ -11,7 +11,7 @@
 
   <!-- Hero Banner -->
   <section class="hero-banner">
-    <img src="tech_help.jpg" alt="Tech Support" />
+    <img src="tech_help.jpg" alt="Tech Support" loading="lazy" />
     <h1>Expert Technical Assistance</h1>
   </section>
 
@@ -32,19 +32,17 @@
   </main>
 
   <!-- Contact CTA -->
-  <section class="help-cta">
+  <section class="help-cta" id="booking">
     <h2>Need Help Now?</h2>
     <p>Click the button below to get in touch and book a session or request emergency support.</p>
-    <button id="contactNowBtn" class="btn">Contact Me</button>
+    <div class="cta-buttons">
+      <a class="btn" href="contact.html#contact">Open emergency intake</a>
+      <a class="btn secondary" href="https://wa.me/18335551234" target="_blank" rel="noreferrer">WhatsApp +1 (833) 555-1234</a>
+    </div>
   </section>
 
     <!-- Footer -->
   <div data-component="footer"></div>
-  <script>
-    document.getElementById('contactNowBtn')?.addEventListener('click', () => {
-      window.location.href = 'contact.html';
-    });
-  </script>
   <script src="layout.js" defer></script>
   <script src="scripts.js" defer></script>
 </body>

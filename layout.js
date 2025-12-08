@@ -12,14 +12,10 @@ const NAV_TEMPLATE = `
         <li><a href="technical-help.html" data-nav="technical-help">Tech Help</a></li>
         <li><a href="contact.html" data-nav="contact">Contact</a></li>
         <li class="lang-switcher">
-          <button id="lang-toggle" type="button" aria-haspopup="true" aria-expanded="false">🌍 Language ▾</button>
-          <ul id="lang-menu" class="lang-menu hidden">
-            <li><a href="index.html">English</a></li>
-            <li><a href="index-fr.html">Français</a></li>
-            <li><a href="index-ar.html">العربية</a></li>
-          </ul>
+          <button type="button" class="lang-coming" title="Français & العربية versions coming soon" disabled>🌍 Languages</button>
         </li>
         <li><button id="dark-toggle" type="button" aria-label="Toggle dark mode">🌙</button></li>
+        <li><a href="contact.html#booking" class="nav-cta">Book a Call</a></li>
       </ul>
     </nav>
   </header>
@@ -62,8 +58,8 @@ function highlightActiveNav() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderTemplate('[data-component=\"navbar\"]', NAV_TEMPLATE);
-  renderTemplate('[data-component=\"footer\"]', FOOTER_TEMPLATE);
+  renderTemplate('[data-component="navbar"]', NAV_TEMPLATE);
+  renderTemplate('[data-component="footer"]', FOOTER_TEMPLATE);
   highlightActiveNav();
   document.dispatchEvent(new CustomEvent('layout:ready'));
 });
