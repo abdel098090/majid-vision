@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,30 +7,8 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
-<body>
-
-  <header class="navbar sticky">
-    <div class="logo">Madjid Vision</div>
-    <nav>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="courses.html">Courses</a></li>
-        <li><a href="books.html">Books</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li class="lang-switcher">
-          <button id="lang-toggle">🌍 Language ▾</button>
-          <ul id="lang-menu" class="lang-menu hidden">
-            <li><a href="index.html">English</a></li>
-            <li><a href="index-fr.html">Français</a></li>
-            <li><a href="index-ar.html">العربية</a></li>
-          </ul>
-        </li>
-        <li><button id="dark-toggle">🌙</button></li>
-      </ul>
-    </nav>
-  </header>
+<body data-page="home">
+  <div data-component="navbar"></div>
 
   <section class="hero-banner">
     <img src="unsplash.jpg" alt="Tech Theme" />
@@ -183,7 +161,7 @@
       <img src="icons/certificate.svg" alt="Certificate" />
       <h4>HTML Beginner</h4>
       <p>Completed the HTML Basics course</p>
-      <a href="certificates/html-basics.pdf" download class="download-btn">Download Certificate</a>
+      <button class="download-btn" type="button" disabled>Certificate Available Soon</button>
     </div>
     <div class="achievement-card">
       <img src="icons/badge.svg" alt="Badge" />
@@ -223,80 +201,8 @@
       <p id="formMsg"></p>
     </form>
   </section>
-<!-- Course Detail Modal -->
-<div id="courseModal" class="modal hidden">
-  <div class="modal-content">
-    <span class="close" onclick="closeCourseModal()">&times;</span>
-    <h3 id="detailTitle"></h3>
-    <p id="detailDesc"></p>
-    <p id="detailPrice"></p>
-    <button onclick="alert('Checkout feature coming soon!')">Enroll Now</button>
-  </div>
-</div>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="footer-content">
-      <p class="footer-logo">Madjid Vision</p>
-      <ul class="footer-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="#books">Books</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <p class="footer-copy">&copy; 2025 Madjid Vision. All rights reserved.</p>
-    </div>
-    <div class="social-icons">
-  <a href="https://facebook.com/abdelmadjidsoumaine123@gmail.com" target="_blank" aria-label="Facebook"><img src="icons/facebook.svg" alt="Facebook" /></a>
-  <a href="https://instagram.com/bendelmo fils" target="_blank" aria-label="Instagram"><img src="icons/instagram.svg" alt="Instagram" /></a>
-  <a href="https://linkedin.com/in/yourusername" target="_blank" aria-label="LinkedIn"><img src="icons/linkedin.svg" alt="LinkedIn" /></a>
-  <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><img src="icons/github.svg" alt="GitHub" /></a>
-  <a href="https://youtube.com/@1itsntme@gmail.com" target="_blank" aria-label="YouTube"><img src="icons/youtube.svg" alt="YouTube" /></a>
-  <a href="https://tiktok.com/@abdelmadjid_ni" target="_blank" aria-label="TikTok"><img src="icons/tiktok.svg" alt="TikTok" /></a>
-  <a href="https://www.spacex.com" target="_blank" aria-label="SpaceX"><img src="icons/spacex.svg" alt="SpaceX" /></a>
-</div>
-  </footer>
-<style>
-  /* Universal fix for horizontal scroll issues */
-body {
-  overflow-x: hidden;
-}
-
-/* Make all images responsive */
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Container and section fix for mobile */
-.container, .section, .course-card, .hero-text {
-  box-sizing: border-box;
-  width: 100%;
-  padding: 1rem;
-}
-
-/* Optional: Limit max width on large screens */
-.container {
-  max-width: 1000px;
-  margin: auto;
-}
-
-/* Responsive text centering for hero banner */
-.hero-text {
-  text-align: center;
-  padding: 1rem;
-}
-
-/* Responsive button */
-button {
-  max-width: 100%;
-  padding: 0.6rem 1rem;
-  font-size: 1rem;
-  white-space: normal;
-}
-</style>
-  <script src="scripts.js"></script>
+  <div data-component="footer"></div>
+  <script src="layout.js" defer></script>
+  <script src="scripts.js" defer></script>
 </body>
 </html>

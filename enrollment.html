@@ -1,147 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Enroll – Madjid Vision</title>
   <link rel="stylesheet" href="styles.css" />
-<style>
-  :root {
-    --bg-color: #ffffff;
-    --text-color: #222222;
-    --accent-color: #007bff;
-    --card-bg: #ffffff;
-    --shadow-color: rgba(0, 0, 0, 0.1);
-  }
 
-  body.dark {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --card-bg: #1f1f1f;
-    --shadow-color: rgba(255, 255, 255, 0.05);
-  }
-
-  body {
-    font-family: 'Segoe UI', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    margin: 0;
-    padding: 0;
-    transition: background-color 0.3s, color 0.3s;
-  }
-
-  .container {
-    max-width: 650px;
-    margin: 2rem auto;
-    padding: 2rem;
-    background-color: var(--card-bg);
-    border-radius: 10px;
-    box-shadow: 0 4px 15px var(--shadow-color);
-  }
-
-  .container h1 {
-    text-align: center;
-    color: var(--accent-color);
-    margin-bottom: 1.5rem;
-  }
-
-  .form-group {
-    margin-bottom: 1.2rem;
-  }
-
-  .form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-  }
-
-  .form-group input,
-  .form-group select,
-  .form-group textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    font-size: 1rem;
-    transition: border-color 0.2s;
-  }
-
-  .form-group input:focus,
-  .form-group textarea:focus,
-  .form-group select:focus {
-    outline: none;
-    border-color: var(--accent-color);
-  }
-
-  .form-group input[type="file"] {
-    padding: 0.5rem;
-    background-color: var(--bg-color);
-  }
-
-  .agreement {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
-  }
-
-  .btn-submit {
-    width: 100%;
-    padding: 0.9rem;
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 1.05rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-
-  .btn-submit:hover {
-    background-color: hsl(210, 100%, 40%);
-  }
-
-  /* Dark mode overrides */
-  body.dark .form-group input,
-  body.dark .form-group select,
-  body.dark .form-group textarea {
-    background-color: #1f1f1f;
-    color: #e0e0e0;
-    border: 1px solid #444;
-  }
-
-  body.dark .form-group input::placeholder,
-  body.dark .form-group textarea::placeholder {
-    color: #aaa;
-  }
-
-  body.dark .container {
-    background-color: var(--card-bg);
-  }
-</style>
 </head>
-<body class="body">
-    <!-- Navbar -->
-<header class="navbar sticky">
-  <div class="logo">Madjid Vision</div>
-  <nav>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="courses.html">Courses</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="books.html">Books</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <li><button id="lang-toggle">🌍</button></li>
-      <li><button id="dark-toggle">🌙</button></li>
-    </ul>
-  </nav>
-</header>
-  <div class="container">
+<body data-page="courses">
+  <div data-component="navbar"></div>
+  <div class="enroll-container">
     <h1>Student Enrollment Form</h1>
     <form id="enrollForm" action="enrollment-success.html" method="GET">
       
@@ -207,33 +75,18 @@
     </form>
   </div>
 
-<script>
-  // Form validation for file uploads
-  document.getElementById('enrollForm').addEventListener('submit', function (e) {
-    const requiredFiles = ['photo', 'diploma', 'id_card', 'birth_cert'];
-    const allFilled = requiredFiles.every(id => this[id].value);
-    if (!allFilled) {
-      e.preventDefault();
-      alert('Please upload all required documents.');
-    }
-  });
-
-  // Apply dark mode if saved
-  document.addEventListener('DOMContentLoaded', () => {
-    if (localStorage.getItem('darkMode') === 'on') {
-      document.body.classList.add('dark');
-    }
-
-    const darkToggle = document.getElementById('dark-toggle');
-    if (darkToggle) {
-      darkToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark');
-        const isDark = document.body.classList.contains('dark');
-        localStorage.setItem('darkMode', isDark ? 'on' : 'off');
-      });
-    }
-  });
-</script>
-
+  <div data-component="footer"></div>
+  <script>
+    document.getElementById('enrollForm').addEventListener('submit', function (e) {
+      const requiredFiles = ['photo', 'diploma', 'id_card', 'birth_cert'];
+      const allFilled = requiredFiles.every((id) => this[id].value);
+      if (!allFilled) {
+        e.preventDefault();
+        alert('Please upload all required documents.');
+      }
+    });
+  </script>
+  <script src="layout.js" defer></script>
+  <script src="scripts.js" defer></script>
 </body>
 </html>
